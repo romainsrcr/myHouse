@@ -8,6 +8,11 @@
 
 import UIKit
 
+let devices = [
+    Device(name: "Sodaq Loïc", description: "The Loïc's Sodac", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"]),
+    Device(name: "Sodaq Romain", description: "The Romain's Sodac", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"])
+]
+
 class DevicesListViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -27,12 +32,14 @@ class DevicesListViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return devices.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let device = devices[indexPath.row]
+        cell.textLabel?.text = device.name
 
         return cell
     }
