@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import MapKit
 
 let devices = [
-    Device(name: "Sodaq Loïc", description: "The Loïc's Sodac", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"]),
-    Device(name: "Sodaq Romain", description: "The Romain's Sodac", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"])
-]
+    Device(title: "Sodaq Loïc",
+           description: "The Loïc's Sodac",
+           iconName: "sodaq_explorer",
+           sensors: ["CO2", "Temperature"],
+           coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400)),
+    Device(title: "Sodaq Romain",
+           description: "The Romain's Sodac",
+           iconName: "sodaq_explorer",
+           sensors: ["CO2", "Temperature"],
+           coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.56134400))]
 
 class DevicesListViewController: UITableViewController {
 
@@ -39,7 +47,7 @@ class DevicesListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let device = devices[indexPath.row]
-        cell.textLabel?.text = device.name
+        cell.textLabel?.text = device.title
 
         return cell
     }
