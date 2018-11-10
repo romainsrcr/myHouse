@@ -13,8 +13,8 @@
 		1765F4962181B75A00AF306E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4942181B75A00AF306E /* Main.storyboard */; };
 		1765F4982181B75B00AF306E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4972181B75B00AF306E /* Assets.xcassets */; };
 		1765F49B2181B75B00AF306E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4992181B75B00AF306E /* LaunchScreen.storyboard */; };
-		EDFD71EF218B1C3F00E89BAB /* DevicesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD71EE218B1C3F00E89BAB /* DevicesListViewController.swift */; };
-		EDFD71F1218B259D00E89BAB /* DeviceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD71F0218B259D00E89BAB /* DeviceDetailsViewController.swift */; };
+		DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */; };
+		DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */; };
 		EDFD71F3218B37B800E89BAB /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD71F2218B37B800E89BAB /* Device.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +27,8 @@
 		1765F4972181B75B00AF306E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1765F49A2181B75B00AF306E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1765F49C2181B75B00AF306E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDFD71EE218B1C3F00E89BAB /* DevicesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesListViewController.swift; sourceTree = "<group>"; };
-		EDFD71F0218B259D00E89BAB /* DeviceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailsViewController.swift; sourceTree = "<group>"; };
+		DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellViewController.swift; sourceTree = "<group>"; };
+		DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewControlller.swift; sourceTree = "<group>"; };
 		EDFD71F2218B37B800E89BAB /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,10 +63,10 @@
 			isa = PBXGroup;
 			children = (
 				1765F48E2181B75A00AF306E /* AppDelegate.swift */,
+				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */,
+				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
 				1765F4902181B75A00AF306E /* FirstViewController.swift */,
 				1765F4922181B75A00AF306E /* SecondViewController.swift */,
-				EDFD71F0218B259D00E89BAB /* DeviceDetailsViewController.swift */,
-				EDFD71EE218B1C3F00E89BAB /* DevicesListViewController.swift */,
 				EDFD71F2218B37B800E89BAB /* Device.swift */,
 				1765F4942181B75A00AF306E /* Main.storyboard */,
 				1765F4972181B75B00AF306E /* Assets.xcassets */,
@@ -147,12 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDFD71EF218B1C3F00E89BAB /* DevicesListViewController.swift in Sources */,
 				1765F4932181B75A00AF306E /* SecondViewController.swift in Sources */,
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
 				1765F4912181B75A00AF306E /* FirstViewController.swift in Sources */,
-				EDFD71F1218B259D00E89BAB /* DeviceDetailsViewController.swift in Sources */,
+				DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */,
 				EDFD71F3218B37B800E89BAB /* Device.swift in Sources */,
+				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
