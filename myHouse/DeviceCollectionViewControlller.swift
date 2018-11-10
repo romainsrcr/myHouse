@@ -7,27 +7,28 @@
 //
 
 import UIKit
+import MapKit
 
 class DeviceCollectionViewControlller: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let devices = [
-        Device(name: "Sodaq Loïc", description: "The Loïc's Sodac", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"]),
-        Device(name: "Sodaq Romain", description: "The Romain's Sodac", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"])
+        Device(name: "Sodaq Loïc", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400)),
+        Device(name: "Sodaq Romain", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400))
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return devices.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DeviceCellViewController
-        cell.Name.text = devices[indexPath.item].name
+        cell.Name.text = devices[indexPath.item].title
         
         cell.contentView.layer.cornerRadius = 25.0
         cell.contentView.layer.masksToBounds = true
@@ -45,13 +46,13 @@ class DeviceCollectionViewControlller: UIViewController, UICollectionViewDataSou
         return cell
     }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

@@ -9,6 +9,66 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Item-->
+        <scene sceneID="kgq-18-RrL">
+            <objects>
+                <viewController id="SNy-rd-8g4" customClass="DeviceCollectionViewControlller" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="54G-v6-7my">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mXi-aJ-MoO" customClass="DeviceCollectionViewController">
+                                <rect key="frame" x="20" y="40" width="335" height="578"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CUG-mH-ymk">
+                                    <size key="itemSize" width="159" height="159"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="tXN-Y1-jQl" customClass="DeviceCellViewController" customModule="myHouse" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="159" height="159"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="159" height="159"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q27-zj-3kM">
+                                                    <rect key="frame" x="20" y="69" width="119" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailingMargin" secondItem="q27-zj-3kM" secondAttribute="trailing" constant="12" id="Nia-1j-UOZ"/>
+                                            <constraint firstItem="q27-zj-3kM" firstAttribute="leading" secondItem="tXN-Y1-jQl" secondAttribute="leadingMargin" constant="12" id="NxC-qf-nbe"/>
+                                            <constraint firstItem="q27-zj-3kM" firstAttribute="centerY" secondItem="tXN-Y1-jQl" secondAttribute="centerY" id="lw2-6J-2le"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="Name" destination="q27-zj-3kM" id="UA1-WU-trb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cfC-gX-ZsO" firstAttribute="bottom" secondItem="mXi-aJ-MoO" secondAttribute="bottom" id="1af-Yv-Gkb"/>
+                            <constraint firstItem="mXi-aJ-MoO" firstAttribute="leading" secondItem="cfC-gX-ZsO" secondAttribute="leading" constant="20" id="QPv-FR-i2s"/>
+                            <constraint firstItem="mXi-aJ-MoO" firstAttribute="top" secondItem="cfC-gX-ZsO" secondAttribute="top" constant="20" id="doV-kx-sbl"/>
+                            <constraint firstItem="cfC-gX-ZsO" firstAttribute="trailing" secondItem="mXi-aJ-MoO" secondAttribute="trailing" constant="20" id="eXU-Oc-LXM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cfC-gX-ZsO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="CRO-cA-IyV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lia-qT-GW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="749.60000000000002" y="-1029.5352323838081"/>
+        </scene>
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
@@ -106,6 +166,7 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="SNy-rd-8g4" kind="relationship" relationship="viewControllers" id="xMz-Ug-fz6"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
