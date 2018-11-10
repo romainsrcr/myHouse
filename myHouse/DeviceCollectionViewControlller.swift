@@ -9,12 +9,12 @@
 import UIKit
 import MapKit
 
+let devices = [
+    Device(name: "Sodaq Loïc", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400)),
+    Device(name: "Sodaq Romain", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400))
+]
+
 class DeviceCollectionViewControlller: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    let devices = [
-        Device(name: "Sodaq Loïc", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400)),
-        Device(name: "Sodaq Romain", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400))
-    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
