@@ -15,6 +15,7 @@
 		D517FEE1BA3AB3151D27E8CA /* Pods_myHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */; };
 		DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */; };
 		DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */; };
+		DA97A6842197433100FFB432 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97A6832197433100FFB432 /* Application.swift */; };
 		DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765F4922181B75A00AF306E /* MapViewController.swift */; };
 		EDFD71F3218B37B800E89BAB /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD71F2218B37B800E89BAB /* Device.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +34,7 @@
 		D71441577A155FF855541DCA /* Pods-myHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-myHouse/Pods-myHouse.release.xcconfig"; sourceTree = "<group>"; };
 		DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellViewController.swift; sourceTree = "<group>"; };
 		DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewControlller.swift; sourceTree = "<group>"; };
+		DA97A6832197433100FFB432 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		EDFD71F2218B37B800E89BAB /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +76,7 @@
 				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
 				1765F4902181B75A00AF306E /* FirstViewController.swift */,
 				1765F4922181B75A00AF306E /* MapViewController.swift */,
-				1765F4922181B75A00AF306E /* MapViewController.swift */,
+				DA97A6832197433100FFB432 /* Application.swift */,
 				EDFD71F2218B37B800E89BAB /* Device.swift */,
 				1765F4942181B75A00AF306E /* Main.storyboard */,
 				1765F4972181B75B00AF306E /* Assets.xcassets */,
@@ -225,6 +227,7 @@
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
 				1765F4912181B75A00AF306E /* FirstViewController.swift in Sources */,
 				DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */,
+				DA97A6842197433100FFB432 /* Application.swift in Sources */,
 				EDFD71F3218B37B800E89BAB /* Device.swift in Sources */,
 				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */,
 			);

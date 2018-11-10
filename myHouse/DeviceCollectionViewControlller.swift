@@ -19,6 +19,7 @@ class DeviceCollectionViewControlller: UIViewController, UICollectionViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        Application.getDevices()
         // Do any additional setup after loading the view.
     }
     
