@@ -18,24 +18,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mXi-aJ-MoO">
-                                <rect key="frame" x="20" y="40" width="335" height="578"/>
+                                <rect key="frame" x="0.0" y="40" width="375" height="578"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CUG-mH-ymk">
-                                    <size key="itemSize" width="145" height="145"/>
+                                    <size key="itemSize" width="156" height="156"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="tXN-Y1-jQl" customClass="DeviceCellViewController" customModule="myHouse" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                        <rect key="frame" x="10" y="10" width="156" height="156"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="156" height="156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxc-tR-GW4">
-                                                    <rect key="frame" x="50" y="62" width="45" height="21"/>
+                                                    <rect key="frame" x="55.5" y="67.5" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -63,9 +63,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cfC-gX-ZsO" firstAttribute="bottom" secondItem="mXi-aJ-MoO" secondAttribute="bottom" id="1af-Yv-Gkb"/>
-                            <constraint firstItem="mXi-aJ-MoO" firstAttribute="leading" secondItem="cfC-gX-ZsO" secondAttribute="leading" constant="20" id="QPv-FR-i2s"/>
                             <constraint firstItem="mXi-aJ-MoO" firstAttribute="top" secondItem="cfC-gX-ZsO" secondAttribute="top" constant="20" id="doV-kx-sbl"/>
-                            <constraint firstItem="cfC-gX-ZsO" firstAttribute="trailing" secondItem="mXi-aJ-MoO" secondAttribute="trailing" constant="20" id="eXU-Oc-LXM"/>
+                            <constraint firstItem="cfC-gX-ZsO" firstAttribute="trailing" secondItem="mXi-aJ-MoO" secondAttribute="trailing" id="dwu-9F-DQv"/>
+                            <constraint firstItem="mXi-aJ-MoO" firstAttribute="centerX" secondItem="54G-v6-7my" secondAttribute="centerX" id="gJ2-Is-tQX"/>
+                            <constraint firstItem="mXi-aJ-MoO" firstAttribute="leading" secondItem="cfC-gX-ZsO" secondAttribute="leading" id="iLb-PG-APP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cfC-gX-ZsO"/>
                     </view>
