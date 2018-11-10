@@ -10,16 +10,16 @@ import UIKit
 import MapKit
 
 let devices = [
-    Device(title: "Sodaq Loïc",
-           description: "The Loïc's Sodac",
+    Device(name: "Sodaq Loïc",
            iconName: "sodaq_explorer",
            sensors: ["CO2", "Temperature"],
            coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400)),
-    Device(title: "Sodaq Romain",
-           description: "The Romain's Sodac",
+    Device(name: "Sodaq Romain",
            iconName: "sodaq_explorer",
            sensors: ["CO2", "Temperature"],
            coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.56134400))]
+
+//let devices = [Int : Device]() //Int is the hardware_serial
 
 class DevicesListViewController: UITableViewController {
 

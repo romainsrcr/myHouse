@@ -13,15 +13,12 @@ import MapKit
 class Device: NSObject, MKAnnotation {
     
     let title: String?
-    let subtitle: String?
-    //let description: String
     let iconName: String
     let sensors: [String]
     let coordinate: CLLocationCoordinate2D
     
-    init(title: String, description: String, iconName: String, sensors: [String], coordinate: CLLocationCoordinate2D) {
-        self.title = title
-        self.subtitle = description
+    init(name: String, iconName: String, sensors: [String], coordinate: CLLocationCoordinate2D) {
+        self.title = name
         self.iconName = iconName
         self.sensors = sensors
         self.coordinate = coordinate

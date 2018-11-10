@@ -9,12 +9,25 @@
 import UIKit
 
 class FirstViewController: UIViewController {
+    
+    @IBOutlet weak var nameAppTextField: UITextField!
+    
+    @IBOutlet weak var accesKeyTextField: UITextField!
+    
+    @IBOutlet weak var logInButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
-
+    
+    @IBAction func didPressLogIn(_ sender: Any) {
+        print(nameAppTextField.text!)
+        print(accesKeyTextField.text!)
+        
+    }
+    
 
 }
 
