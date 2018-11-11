@@ -10,9 +10,10 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    
     @IBAction func logOutButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "status")
+        UserDefaults.standard.removeObject(forKey: "appName")
+        UserDefaults.standard.removeObject(forKey: "accessKey")
         Switcher.updateRootVC()
     }
     

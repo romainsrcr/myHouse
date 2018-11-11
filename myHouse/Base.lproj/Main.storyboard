@@ -77,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lia-qT-GW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="-1063"/>
+            <point key="canvasLocation" x="902" y="-813"/>
         </scene>
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
@@ -87,9 +87,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbm-Sy-nu2">
-                                <rect key="frame" x="32" y="38" width="72" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rbm-Sy-nu2">
+                                <rect key="frame" x="20" y="40" width="62" height="34"/>
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -99,13 +98,18 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZAb-J2-vci" firstAttribute="trailing" secondItem="Rbm-Sy-nu2" secondAttribute="trailing" constant="293" id="OFc-BH-grG"/>
+                            <constraint firstItem="Rbm-Sy-nu2" firstAttribute="leading" secondItem="ZAb-J2-vci" secondAttribute="leading" constant="20" id="eyE-Eh-Jd8"/>
+                            <constraint firstItem="Rbm-Sy-nu2" firstAttribute="top" secondItem="ZAb-J2-vci" secondAttribute="top" constant="20" id="ffg-bi-wE6"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZAb-J2-vci"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-320.68965517241384"/>
+            <point key="canvasLocation" x="901.60000000000002" y="-21.139430284857571"/>
         </scene>
         <!--Map-->
         <scene sceneID="wg7-f3-ORb">
@@ -135,7 +139,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="359.37031484257875"/>
+            <point key="canvasLocation" x="902" y="777"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="LZX-E9-XlD">
@@ -171,11 +175,11 @@
                             <constraint firstItem="kjF-Q0-50M" firstAttribute="trailing" secondItem="F1z-oZ-I1S" secondAttribute="trailing" constant="60" id="LS1-LS-mk0"/>
                             <constraint firstItem="8Q9-p7-DQW" firstAttribute="leading" secondItem="kjF-Q0-50M" secondAttribute="leading" constant="116" id="Ls1-le-fOO"/>
                             <constraint firstItem="kjF-Q0-50M" firstAttribute="trailing" secondItem="8Fe-tY-N6J" secondAttribute="trailing" constant="60" id="O1F-t0-AZQ"/>
+                            <constraint firstItem="kjF-Q0-50M" firstAttribute="trailing" secondItem="8Q9-p7-DQW" secondAttribute="trailing" constant="116" id="PQK-fU-bzP"/>
                             <constraint firstItem="8Q9-p7-DQW" firstAttribute="top" secondItem="F1z-oZ-I1S" secondAttribute="bottom" constant="60" id="Pvr-uy-2Vd"/>
                             <constraint firstItem="8Fe-tY-N6J" firstAttribute="top" secondItem="kjF-Q0-50M" secondAttribute="top" constant="160" id="aip-EC-UDM"/>
                             <constraint firstItem="8Fe-tY-N6J" firstAttribute="leading" secondItem="kjF-Q0-50M" secondAttribute="leading" constant="60" id="c7h-Pz-Dh4"/>
                             <constraint firstItem="F1z-oZ-I1S" firstAttribute="leading" secondItem="kjF-Q0-50M" secondAttribute="leading" constant="60" id="gM2-Bs-ZHt"/>
-                            <constraint firstItem="8Q9-p7-DQW" firstAttribute="centerX" secondItem="F1z-oZ-I1S" secondAttribute="centerX" id="qZM-KZ-fV4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kjF-Q0-50M"/>
                     </view>

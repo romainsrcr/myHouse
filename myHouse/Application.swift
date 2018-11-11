@@ -14,6 +14,10 @@ import MapKit
 class Application: NSObject{
     
     // Properties of the application
+    // Si tu veux avoir accès à App Name et AccesKey mis par user :
+    //      private static let name = UserDefaults.standard.string(forKey: "appName")
+    //      private static let accessKey = UserDefaults.standard.string(forKey: "accessKey")
+    
     private static let name = "project_iot_dtu"
     private static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
     

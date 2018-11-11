@@ -15,10 +15,13 @@ class loginViewController: UIViewController {
     @IBOutlet weak var accessKeyTextField: UITextField!
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        if appNameTextField.text == "test" && accessKeyTextField.text == "test" {
-            UserDefaults.standard.set(true, forKey: "status")
-            Switcher.updateRootVC()
-        }
+        // Saving in UserDefault App information
+        UserDefaults.standard.set(appNameTextField.text, forKey: "appName")
+        UserDefaults.standard.set(accessKeyTextField.text, forKey: "accessKey")
+        UserDefaults.standard.set(true, forKey: "status")
+        
+        Switcher.updateRootVC()
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
