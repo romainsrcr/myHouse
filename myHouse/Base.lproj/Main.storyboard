@@ -12,7 +12,7 @@
         <!--Item-->
         <scene sceneID="kgq-18-RrL">
             <objects>
-                <viewController id="SNy-rd-8g4" customClass="DeviceCollectionViewControlller" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SNy-rd-8g4" customClass="DeviceCollectionViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="54G-v6-7my">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,10 +71,13 @@
                         <viewLayoutGuide key="safeArea" id="BUO-sq-hQc"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="CRO-cA-IyV"/>
+                    <connections>
+                        <outlet property="collectionView" destination="mXi-aJ-MoO" id="lE8-Vh-4NF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lia-qT-GW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="-1029.5352323838081"/>
+            <point key="canvasLocation" x="1110" y="-1063"/>
         </scene>
         <!--First-->
         <scene sceneID="hNz-n2-bh7">

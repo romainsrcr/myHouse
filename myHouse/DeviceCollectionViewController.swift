@@ -7,19 +7,18 @@
 //
 
 import UIKit
-import MapKit
 
-let devices = [
-    Device(name: "Sodaq Loïc", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400)),
-    Device(name: "Sodaq Romain", iconName: "sodaq_explorer", sensors: ["CO2", "Temperature"], coordinate: CLLocationCoordinate2D(latitude: 55.70820200, longitude: 12.51134400))
-]
-
-class DeviceCollectionViewControlller: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class DeviceCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    var devices:[Device] = []
+    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.delegate = self;
+        collectionView.dataSource = self;
+        Application.getDevices(success: {(devices) -> Void in self.devices = devices; self.collectionView.reloadData()} )
         
-        // Do any additional setup after loading the view.
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
