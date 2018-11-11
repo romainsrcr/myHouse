@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172D05082198481100B4A22F /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D05072198481100B4A22F /* loginViewController.swift */; };
+		172D050A21984EE100B4A22F /* Switcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172D050921984EE100B4A22F /* Switcher.swift */; };
 		1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765F48E2181B75A00AF306E /* AppDelegate.swift */; };
 		1765F4912181B75A00AF306E /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765F4902181B75A00AF306E /* FirstViewController.swift */; };
 		1765F4962181B75A00AF306E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4942181B75A00AF306E /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172D05072198481100B4A22F /* loginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		172D050921984EE100B4A22F /* Switcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Switcher.swift; sourceTree = "<group>"; };
 		1765F48B2181B75A00AF306E /* myHouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myHouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1765F48E2181B75A00AF306E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1765F4902181B75A00AF306E /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -74,12 +78,13 @@
 				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
 				1765F4902181B75A00AF306E /* FirstViewController.swift */,
 				1765F4922181B75A00AF306E /* MapViewController.swift */,
-				1765F4922181B75A00AF306E /* MapViewController.swift */,
 				EDFD71F2218B37B800E89BAB /* Device.swift */,
 				1765F4942181B75A00AF306E /* Main.storyboard */,
 				1765F4972181B75B00AF306E /* Assets.xcassets */,
 				1765F4992181B75B00AF306E /* LaunchScreen.storyboard */,
 				1765F49C2181B75B00AF306E /* Info.plist */,
+				172D05072198481100B4A22F /* loginViewController.swift */,
+				172D050921984EE100B4A22F /* Switcher.swift */,
 			);
 			path = myHouse;
 			sourceTree = "<group>";
@@ -223,7 +228,9 @@
 			files = (
 				DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */,
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
+				172D050A21984EE100B4A22F /* Switcher.swift in Sources */,
 				1765F4912181B75A00AF306E /* FirstViewController.swift in Sources */,
+				172D05082198481100B4A22F /* loginViewController.swift in Sources */,
 				DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */,
 				EDFD71F3218B37B800E89BAB /* Device.swift in Sources */,
 				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */,

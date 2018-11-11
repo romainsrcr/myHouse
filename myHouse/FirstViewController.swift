@@ -10,24 +10,17 @@ import UIKit
 
 class FirstViewController: UIViewController {
     
-    @IBOutlet weak var nameAppTextField: UITextField!
     
-    @IBOutlet weak var accesKeyTextField: UITextField!
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "status")
+        Switcher.updateRootVC()
+    }
     
-    @IBOutlet weak var logInButton: UIButton!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
     }
-    
-    @IBAction func didPressLogIn(_ sender: Any) {
-        print(nameAppTextField.text!)
-        print(accesKeyTextField.text!)
-        
-    }
-    
 
 }
 
