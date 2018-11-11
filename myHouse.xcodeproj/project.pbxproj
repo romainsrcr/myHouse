@@ -14,7 +14,7 @@
 		1765F49B2181B75B00AF306E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4992181B75B00AF306E /* LaunchScreen.storyboard */; };
 		D517FEE1BA3AB3151D27E8CA /* Pods_myHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */; };
 		DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */; };
-		DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */; };
+		DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */; };
 		DA97A6842197433100FFB432 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97A6832197433100FFB432 /* Application.swift */; };
 		DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765F4922181B75A00AF306E /* MapViewController.swift */; };
 		EDFD71F3218B37B800E89BAB /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD71F2218B37B800E89BAB /* Device.swift */; };
@@ -33,7 +33,7 @@
 		6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71441577A155FF855541DCA /* Pods-myHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-myHouse/Pods-myHouse.release.xcconfig"; sourceTree = "<group>"; };
 		DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCellViewController.swift; sourceTree = "<group>"; };
-		DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewControlller.swift; sourceTree = "<group>"; };
+		DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewController.swift; sourceTree = "<group>"; };
 		DA97A6832197433100FFB432 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		EDFD71F2218B37B800E89BAB /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,13 +71,13 @@
 		1765F48D2181B75A00AF306E /* myHouse */ = {
 			isa = PBXGroup;
 			children = (
+				EDFD71F2218B37B800E89BAB /* Device.swift */,
+				DA97A6832197433100FFB432 /* Application.swift */,
 				1765F48E2181B75A00AF306E /* AppDelegate.swift */,
-				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift */,
+				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */,
 				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
 				1765F4902181B75A00AF306E /* FirstViewController.swift */,
 				1765F4922181B75A00AF306E /* MapViewController.swift */,
-				DA97A6832197433100FFB432 /* Application.swift */,
-				EDFD71F2218B37B800E89BAB /* Device.swift */,
 				1765F4942181B75A00AF306E /* Main.storyboard */,
 				1765F4972181B75B00AF306E /* Assets.xcassets */,
 				1765F4992181B75B00AF306E /* LaunchScreen.storyboard */,
@@ -204,12 +204,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-myHouse/Pods-myHouse-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -229,7 +231,7 @@
 				DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */,
 				DA97A6842197433100FFB432 /* Application.swift in Sources */,
 				EDFD71F3218B37B800E89BAB /* Device.swift in Sources */,
-				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewControlller.swift in Sources */,
+				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,8 @@ import MapKit
 
 class MapViewController: UIViewController {
     
+    var devices: [Device] = []
+    
     @IBOutlet weak var mapView: MKMapView!
     // set initial location in Copenhagen
     let initialLocation = CLLocation(latitude: 55.676098, longitude: 12.568337)
@@ -24,9 +26,9 @@ class MapViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        Application.getDevices(success: {(devices) -> Void in self.mapView.addAnnotations(devices)})
         centerMapOnLocation(location: initialLocation)
-        mapView.addAnnotations(devices)
+        
     }
 }
 
