@@ -35,6 +35,7 @@ class Application: NSObject{
                 if let result = response.result.value {
                     self.devices = []
                     let resultJSON = JSON(result)
+                    print(resultJSON)
                     for device in resultJSON["devices"].arrayValue {
                         let deviceName = device["dev_id"].stringValue
                         let deviceLatitude = device["latitude"].doubleValue
