@@ -39,7 +39,8 @@ class Application: NSObject{
                         let deviceName = device["dev_id"].stringValue
                         let deviceLatitude = device["latitude"].doubleValue
                         let deviceLongitude = device["longitude"].doubleValue
-                        self.devices.append(Device(name: deviceName, coordinate: CLLocationCoordinate2D(latitude: deviceLatitude, longitude: deviceLongitude )))
+                        let deviceDescription = device["description"].stringValue
+                        self.devices.append(Device(name: deviceName, description: deviceDescription, coordinate: CLLocationCoordinate2D(latitude: deviceLatitude, longitude: deviceLongitude )))
                     }
                 }
                 success(self.devices)

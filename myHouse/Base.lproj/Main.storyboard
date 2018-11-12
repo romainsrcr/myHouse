@@ -51,7 +51,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="Name" destination="bxc-tR-GW4" id="I06-TJ-BUn"/>
-                                            <segue destination="enD-mT-FuC" kind="show" id="kVw-Px-eLa"/>
+                                            <segue destination="enD-mT-FuC" kind="show" identifier="showDeviceDetailsSegue" id="kVw-Px-eLa"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1840.8" y="-813.64317841079469"/>
         </scene>
-        <!--View Controller-->
+        <!--Device Details View Controller-->
         <scene sceneID="2S0-O5-BQo">
             <objects>
-                <viewController id="enD-mT-FuC" sceneMemberID="viewController">
+                <viewController id="enD-mT-FuC" customClass="DeviceDetailsViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e9j-o6-Mkf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,23 +92,29 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="351"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UjM-cI-52D">
-                                <rect key="frame" x="0.0" y="423" width="375" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTg-qa-V0z">
+                                <rect key="frame" x="16" y="423" width="343" height="195"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="pwz-7w-l0C" firstAttribute="trailing" secondItem="MTg-qa-V0z" secondAttribute="trailing" constant="16" id="5Hp-fJ-3mW"/>
+                            <constraint firstItem="MTg-qa-V0z" firstAttribute="bottom" secondItem="pwz-7w-l0C" secondAttribute="bottom" id="5gx-LM-PIB"/>
+                            <constraint firstItem="MTg-qa-V0z" firstAttribute="top" secondItem="0KC-ne-DR8" secondAttribute="bottom" constant="8" id="HA6-HT-cUH"/>
                             <constraint firstItem="0KC-ne-DR8" firstAttribute="trailing" secondItem="pwz-7w-l0C" secondAttribute="trailing" id="UBU-Lh-uPl"/>
                             <constraint firstItem="0KC-ne-DR8" firstAttribute="leading" secondItem="pwz-7w-l0C" secondAttribute="leading" id="dxB-xl-sKk"/>
                             <constraint firstItem="0KC-ne-DR8" firstAttribute="top" secondItem="pwz-7w-l0C" secondAttribute="top" id="qad-m0-gzm"/>
+                            <constraint firstItem="MTg-qa-V0z" firstAttribute="leading" secondItem="pwz-7w-l0C" secondAttribute="leading" constant="16" id="sWi-FL-EPc"/>
                             <constraint firstItem="pwz-7w-l0C" firstAttribute="bottom" secondItem="0KC-ne-DR8" secondAttribute="bottom" constant="203" id="wrf-TG-VeO"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pwz-7w-l0C"/>
                     </view>
+                    <connections>
+                        <outlet property="DescriptionView" destination="MTg-qa-V0z" id="ocf-Mv-M8o"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVP-M9-lCN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

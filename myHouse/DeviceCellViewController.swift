@@ -10,6 +10,5 @@ import UIKit
 
 class DeviceCellViewController: UICollectionViewCell {
     
-
     @IBOutlet weak var Name: UILabel!
 }

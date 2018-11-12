@@ -60,6 +60,15 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDeviceDetailsSegue" {
+            if let indexPath = self.collectionView?.indexPath(for: sender as! DeviceCellViewController) {
+                let destination = segue.destination as! DeviceDetailsViewController
+                destination.deviceDescription = devices[indexPath.row].deviceDescription
+            }
+        }
+    }
     /*
      // MARK: - Navigation
      
