@@ -5,5 +5,6 @@ target 'myHouse' do
   
   pod 'Alamofire'
   pod 'SwiftyJSON'
+  pod 'Charts'
 
 end
