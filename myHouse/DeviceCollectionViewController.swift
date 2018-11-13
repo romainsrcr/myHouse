@@ -15,8 +15,24 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self;
-        collectionView.dataSource = self;
+        
+        let cellWidth: CGFloat
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            cellWidth = ((view.frame.size.width - 20) / 2) - 20
+        case .pad:
+            cellWidth = ((view.frame.size.width - 20) / 3) - 20
+        case .unspecified:
+            cellWidth = ((view.frame.size.width - 20) / 2) - 20
+        case .tv:
+            cellWidth = ((view.frame.size.width - 20) / 5) - 20
+        case .carPlay:
+            cellWidth = ((view.frame.size.width - 20) / 4) - 20
+        }
+        
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
+        
         Application.getDevices(success: {(devices) -> Void in self.devices = devices; self.collectionView.reloadData()} )
         
     }
@@ -43,6 +59,15 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDeviceDetailsSegue" {
+            if let indexPath = self.collectionView?.indexPath(for: sender as! DeviceCellViewController) {
+                let destination = segue.destination as! DeviceDetailsViewController
+                destination.deviceDescription = devices[indexPath.row].deviceDescription
+            }
+        }
     }
     /*
      // MARK: - Navigation
