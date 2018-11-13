@@ -65,7 +65,7 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         if segue.identifier == "showDeviceDetailsSegue" {
             if let indexPath = self.collectionView?.indexPath(for: sender as! DeviceCellViewController) {
                 let destination = segue.destination as! DeviceDetailsViewController
-                destination.deviceDescription = devices[indexPath.row].deviceDescription
+                destination.device = devices[indexPath.row]
             }
         }
     }

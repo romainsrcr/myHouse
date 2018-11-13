@@ -11,7 +11,7 @@ import Charts
 
 class DeviceDetailsViewController: UIViewController {
     
-    var deviceDescription: String = ""
+    var device: Device?
     var deviceData: [Double] = [0, 9, 9, 19, 23, -2, 7, 9, 12, 13, 23]
     var lineChartEntry = [ChartDataEntry]()
     
@@ -22,7 +22,9 @@ class DeviceDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        DescriptionView.text = self.deviceDescription
+        DescriptionView.text = self.device!.deviceDescription
+        self.device!.getData(success: {})
+        print("OK")
         updateGraoh()
     }
     

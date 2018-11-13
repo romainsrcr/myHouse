@@ -39,7 +39,6 @@ class Application: NSObject{
                 if let result = response.result.value {
                     self.devices = []
                     let resultJSON = JSON(result)
-                    print(resultJSON)
                     for device in resultJSON["devices"].arrayValue {
                         let deviceName = device["dev_id"].stringValue
                         let deviceLatitude = device["latitude"].doubleValue
@@ -55,5 +54,9 @@ class Application: NSObject{
     
     static func getName() -> String {
         return self.name
+    }
+    
+    static func getAccessKey() -> String {
+        return self.accessKey
     }
 }
