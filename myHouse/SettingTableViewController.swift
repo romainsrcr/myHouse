@@ -10,6 +10,9 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
     
+    
+    @IBOutlet weak var appNameInSetting: UILabel!
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             UserDefaults.standard.set(false, forKey: "status")
@@ -18,9 +21,13 @@ class SettingTableViewController: UITableViewController {
             Switcher.updateRootVC()
         }
     }
+    
+    
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            appNameInSetting.text = Application.getName().replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
+            
             
             // Uncomment the following line to preserve selection between presentations
             // self.clearsSelectionOnViewWillAppear = false
@@ -30,8 +37,7 @@ class SettingTableViewController: UITableViewController {
         }
         
         // MARK: - Table view data source
-    
-    
+            
         /*
          override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
