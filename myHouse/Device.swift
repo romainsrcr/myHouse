@@ -18,7 +18,7 @@ class Device: NSObject, MKAnnotation {
     var deviceDescription: String
     //let iconName: String
     
-    var datas : Dictionary<String, [Float]>
+    private(set) var datas : Dictionary<String, [Float]>
     let coordinate: CLLocationCoordinate2D
     
     init(name: String, description: String, coordinate: CLLocationCoordinate2D) {

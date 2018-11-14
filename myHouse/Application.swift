@@ -23,13 +23,13 @@ class Application: NSObject{
     private static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
     
     //Interresting information
-    private static var devices: [Device] = []
+    private(set) static var devices: [Device] = []
     
     
     private override init() {
     }
     
-    static func getDevices(success: @escaping ([Device]) -> Void) {
+    static func getDevices(success: @escaping () -> Void) {
         
         let url = "http://eu.thethings.network:8084/applications/\(name)/devices"
         let headers = ["Authorization": "Key \(accessKey)"]
@@ -48,7 +48,7 @@ class Application: NSObject{
                         self.devices.append(deviceCreated)
                     }
                 }
-                success(self.devices)
+                success()
             }
         }
     }

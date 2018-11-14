@@ -12,7 +12,6 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
     
     
     
-    var devices:[Device] = []
     @IBOutlet weak var collectionView: UICollectionView!
     private let refreshControl = UIRefreshControl()
     
@@ -48,15 +47,13 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
     }
     
     @objc func getDataAndReload(){
-        Application.getDevices(success: {(devices) -> Void in self.reloadView(devices: devices)} )
+        Application.getDevices(success: {() -> Void in self.reloadView()} )
     }
     
-    func reloadView(devices: [Device]){
-        self.devices = devices;
+    func reloadView(){
         self.collectionView.reloadData()
-        print(devices.count)
-        for i in 0..<devices.count {
-            self.devices[i].getData(success: {() -> Void in
+        for i in 0..<Application.devices.count {
+            Application.devices[i].getData(success: {() -> Void in
                 self.collectionView.reloadSections(IndexSet(integer: i))
             })
         }
@@ -64,16 +61,18 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return devices.count
+        return Application.devices.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return devices[section].datas.count
+        return Application.devices[section].datas.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DeviceCellViewController
-        cell.Name.text = devices[indexPath.section].title
+        
+        print(indexPath.section + indexPath.row)
+        cell.Name.text = Array(Application.devices[indexPath.section].datas.keys)[indexPath.row].transformToBeautiful()
         
         cell.contentView.layer.cornerRadius = 25.0
         cell.contentView.layer.masksToBounds = true
@@ -95,19 +94,9 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         if segue.identifier == "showDeviceDetailsSegue" {
             if let indexPath = self.collectionView?.indexPath(for: sender as! DeviceCellViewController) {
                 let destination = segue.destination as! DeviceDetailsViewController
-                destination.device = devices[indexPath.row]
+                destination.device = Application.devices[indexPath.section]
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

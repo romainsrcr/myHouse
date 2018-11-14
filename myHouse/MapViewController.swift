@@ -11,11 +11,11 @@ import MapKit
 
 class MapViewController: UIViewController {
     
-    var devices: [Device] = []
-    
     @IBOutlet weak var mapView: MKMapView!
+    
     // set initial location in Copenhagen
     let initialLocation = CLLocation(latitude: 55.676098, longitude: 12.568337)
+    
     // set inital scale of 10 000 m
     let regionRadius: CLLocationDistance = 10000
     
@@ -26,7 +26,7 @@ class MapViewController: UIViewController {
  
     override func viewDidLoad() {
         super.viewDidLoad()
-        Application.getDevices(success: {(devices) -> Void in self.mapView.addAnnotations(devices)})
+        Application.getDevices(success: {() -> Void in self.mapView.addAnnotations(Application.devices)})
         centerMapOnLocation(location: initialLocation)
         
     }
