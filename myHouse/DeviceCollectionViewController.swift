@@ -10,12 +10,18 @@ import UIKit
 
 class DeviceCollectionViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    
+    
     var devices:[Device] = []
     @IBOutlet weak var collectionView: UICollectionView!
+    private let refreshControl = UIRefreshControl()
+    
     
     override func viewDidLoad() {
+        //initialise the parent
         super.viewDidLoad()
         
+        //Calculate the width of each cell fro each devices
         let cellWidth: CGFloat
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -29,23 +35,32 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         case .carPlay:
             cellWidth = ((view.frame.size.width - 20) / 4) - 20
         }
-        
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         
+        //Setup the refresh controller
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(getDataAndReload), for: .valueChanged)
         
+        //fetch the data from the API
+        getDataAndReload()
+        
+    }
+    
+    @objc func getDataAndReload(){
         Application.getDevices(success: {(devices) -> Void in self.reloadView(devices: devices)} )
-        
     }
     
     func reloadView(devices: [Device]){
         self.devices = devices;
         self.collectionView.reloadData()
+        print(devices.count)
         for i in 0..<devices.count {
             self.devices[i].getData(success: {() -> Void in
                 self.collectionView.reloadSections(IndexSet(integer: i))
             })
         }
+        self.refreshControl.endRefreshing()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
