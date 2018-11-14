@@ -24,7 +24,6 @@ class DeviceDetailsViewController: UIViewController {
         super.viewDidLoad()
         DescriptionView.text = self.device!.deviceDescription
         self.device!.getData(success: {})
-        print("OK")
         updateGraoh()
     }
     

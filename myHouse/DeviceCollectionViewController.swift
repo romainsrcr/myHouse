@@ -33,17 +33,32 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
         
-        Application.getDevices(success: {(devices) -> Void in self.devices = devices; self.collectionView.reloadData()} )
+        
+        Application.getDevices(success: {(devices) -> Void in self.reloadView(devices: devices)} )
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func reloadView(devices: [Device]){
+        self.devices = devices;
+        self.collectionView.reloadData()
+        for i in 0..<devices.count {
+            self.devices[i].getData(success: {() -> Void in
+                self.collectionView.reloadSections(IndexSet(integer: i))
+            })
+        }
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return devices.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return devices[section].datas.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DeviceCellViewController
-        cell.Name.text = devices[indexPath.item].title
+        cell.Name.text = devices[indexPath.section].title
         
         cell.contentView.layer.cornerRadius = 25.0
         cell.contentView.layer.masksToBounds = true
@@ -69,6 +84,7 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
             }
         }
     }
+    
     /*
      // MARK: - Navigation
      
