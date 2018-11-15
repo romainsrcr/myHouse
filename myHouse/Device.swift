@@ -16,9 +16,7 @@ class Device: NSObject, MKAnnotation {
     
     let title: String?
     var deviceDescription: String
-    //let iconName: String
-    
-    private(set) var datas : Dictionary<String, [Float]>
+    private(set) var datas : Dictionary<String, Dictionary<String, [Any]>>
     let coordinate: CLLocationCoordinate2D
     
     init(name: String, description: String, coordinate: CLLocationCoordinate2D) {
@@ -40,11 +38,23 @@ class Device: NSObject, MKAnnotation {
                     let resultJSON = JSON(result)
                     for packet in resultJSON.arrayValue {
                         for (key, value) in packet {
+                            
                             if (key != "device_id" && key != "raw" && key != "time"){
+                                
+                                //Value management
                                 if self.datas[key] == nil {
-                                    self.datas[key] = []
+                                    self.datas[key] = [:]
+                                    self.datas[key]!["data"] = []
+                                    self.datas[key]!["date"] = []
                                 }
-                                self.datas[key]!.append(value.floatValue)
+                                self.datas[key]!["data"]!.append(value.floatValue)
+                                
+                                // Date management
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.locale = Locale(identifier: "en_US")
+                                dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH:mm:ss.SSSS'Z'"
+                                let date = dateFormatter.date(from: packet["time"].stringValue)
+                                self.datas[key]!["date"]!.append(date!)
                             }
                         }
                     }

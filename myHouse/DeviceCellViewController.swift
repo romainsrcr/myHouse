@@ -9,7 +9,13 @@
 import UIKit
 
 class DeviceCellViewController: UICollectionViewCell {
-    
+    var device: Device?
+    var sensor: String?
     
     @IBOutlet weak var Name: UILabel!
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        Name.text = sensor!.transformToBeautiful()
+    }
 }

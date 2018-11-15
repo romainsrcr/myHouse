@@ -71,8 +71,8 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DeviceCellViewController
         
-        print(indexPath.section + indexPath.row)
-        cell.Name.text = Array(Application.devices[indexPath.section].datas.keys)[indexPath.row].transformToBeautiful()
+        cell.device = Application.devices[indexPath.section]
+        cell.sensor = Array(Application.devices[indexPath.section].datas.keys)[indexPath.row]
         
         cell.contentView.layer.cornerRadius = 25.0
         cell.contentView.layer.masksToBounds = true
