@@ -95,6 +95,7 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
             if let indexPath = self.collectionView?.indexPath(for: sender as! DeviceCellViewController) {
                 let destination = segue.destination as! DeviceDetailsViewController
                 destination.device = Application.devices[indexPath.section]
+                destination.sensor = Array(Application.devices[indexPath.section].datas.keys)[indexPath.row]
             }
         }
     }

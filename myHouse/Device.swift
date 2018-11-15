@@ -47,7 +47,7 @@ class Device: NSObject, MKAnnotation {
                                     self.datas[key]!["data"] = []
                                     self.datas[key]!["date"] = []
                                 }
-                                self.datas[key]!["data"]!.append(value.floatValue)
+                                self.datas[key]!["data"]!.append(value.doubleValue)
                                 
                                 // Date management
                                 let dateFormatter = DateFormatter()
