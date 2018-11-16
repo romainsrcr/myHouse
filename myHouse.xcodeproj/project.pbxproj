@@ -20,6 +20,7 @@
 		DA97A6842197433100FFB432 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97A6832197433100FFB432 /* Application.swift */; };
 		DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1765F4922181B75A00AF306E /* MapViewController.swift */; };
 		ED08BD71219C775400D3A18A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED08BD70219C775400D3A18A /* Extensions.swift */; };
+		ED0D1E19219EE98300C1312D /* DevicesSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0D1E18219EE98300C1312D /* DevicesSettingTableViewController.swift */; };
 		ED4BF1F6219DC5C400EF6FF8 /* DateValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4BF1F5219DC5C400EF6FF8 /* DateValueFormatter.swift */; };
 		ED5D42D721998F0E0026D73E /* DeviceDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */; };
 		EDFD71F3218B37B800E89BAB /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDFD71F2218B37B800E89BAB /* Device.swift */; };
@@ -43,6 +44,7 @@
 		DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCollectionViewController.swift; sourceTree = "<group>"; };
 		DA97A6832197433100FFB432 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		ED08BD70219C775400D3A18A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		ED0D1E18219EE98300C1312D /* DevicesSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevicesSettingTableViewController.swift; sourceTree = "<group>"; };
 		ED4BF1F5219DC5C400EF6FF8 /* DateValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateValueFormatter.swift; sourceTree = "<group>"; };
 		ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailsViewController.swift; sourceTree = "<group>"; };
 		EDFD71F2218B37B800E89BAB /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				1765F4922181B75A00AF306E /* MapViewController.swift */,
 				17D4BCF7219A31B500792836 /* SettingTableViewController.swift */,
 				ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */,
+				ED0D1E18219EE98300C1312D /* DevicesSettingTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */,
+				ED0D1E19219EE98300C1312D /* DevicesSettingTableViewController.swift in Sources */,
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
 				ED4BF1F6219DC5C400EF6FF8 /* DateValueFormatter.swift in Sources */,
 				172D050A21984EE100B4A22F /* Switcher.swift in Sources */,

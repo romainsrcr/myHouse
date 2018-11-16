@@ -376,10 +376,10 @@
             </objects>
             <point key="canvasLocation" x="1841" y="-22"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Devices Setting Table View Controller-->
         <scene sceneID="gpk-sh-4Vy">
             <objects>
-                <tableViewController id="83o-Nu-McL" sceneMemberID="viewController">
+                <tableViewController id="83o-Nu-McL" customClass="DevicesSettingTableViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="K0E-7a-JuF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
