@@ -81,22 +81,11 @@
 		1765F48D2181B75A00AF306E /* myHouse */ = {
 			isa = PBXGroup;
 			children = (
-				DA97A6832197433100FFB432 /* Application.swift */,
-				1765F48E2181B75A00AF306E /* AppDelegate.swift */,
-				EDFD71F2218B37B800E89BAB /* Device.swift */,
-				172D050921984EE100B4A22F /* Switcher.swift */,
-				172D05072198481100B4A22F /* loginViewController.swift */,
-				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */,
-				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
-				17D4BCF7219A31B500792836 /* SettingTableViewController.swift */,
-				ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */,
-				1765F4922181B75A00AF306E /* MapViewController.swift */,
-				ED08BD70219C775400D3A18A /* Extensions.swift */,
-				1765F4942181B75A00AF306E /* Main.storyboard */,
-				1765F4972181B75B00AF306E /* Assets.xcassets */,
-				1765F4992181B75B00AF306E /* LaunchScreen.storyboard */,
+				ED0D1E17219EE5E600C1312D /* Controllers */,
+				ED0D1E15219EE5A100C1312D /* Views */,
+				ED0D1E14219EE55600C1312D /* Tools */,
+				ED0D1E13219EE45C00C1312D /* Model */,
 				1765F49C2181B75B00AF306E /* Info.plist */,
-				ED4BF1F5219DC5C400EF6FF8 /* DateValueFormatter.swift */,
 			);
 			path = myHouse;
 			sourceTree = "<group>";
@@ -116,6 +105,49 @@
 				6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED0D1E13219EE45C00C1312D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EDFD71F2218B37B800E89BAB /* Device.swift */,
+				DA97A6832197433100FFB432 /* Application.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED0D1E14219EE55600C1312D /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				ED08BD70219C775400D3A18A /* Extensions.swift */,
+				ED4BF1F5219DC5C400EF6FF8 /* DateValueFormatter.swift */,
+				172D050921984EE100B4A22F /* Switcher.swift */,
+				1765F48E2181B75A00AF306E /* AppDelegate.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		ED0D1E15219EE5A100C1312D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1765F4942181B75A00AF306E /* Main.storyboard */,
+				1765F4992181B75B00AF306E /* LaunchScreen.storyboard */,
+				1765F4972181B75B00AF306E /* Assets.xcassets */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		ED0D1E17219EE5E600C1312D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				172D05072198481100B4A22F /* loginViewController.swift */,
+				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */,
+				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
+				1765F4922181B75A00AF306E /* MapViewController.swift */,
+				17D4BCF7219A31B500792836 /* SettingTableViewController.swift */,
+				ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
