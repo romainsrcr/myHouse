@@ -15,12 +15,14 @@ import SwiftyJSON
 class Device: NSObject, MKAnnotation {
     
     let title: String?
+    let name: String?
     var deviceDescription: String
     private(set) var datas : Dictionary<String, Dictionary<String, [Any]>>
     let coordinate: CLLocationCoordinate2D
     
     init(name: String, description: String, coordinate: CLLocationCoordinate2D) {
-        self.title = name
+        self.title = name.transformToBeautiful()
+        self.name = name
         self.coordinate = coordinate
         self.deviceDescription = description
         self.datas = [:]
@@ -29,7 +31,7 @@ class Device: NSObject, MKAnnotation {
     
     func getData(success: @escaping () -> Void) {
         
-        let url = "https://\(Application.getName()).data.thethingsnetwork.org/api/v2/query/\(self.title!)"
+        let url = "https://\(Application.getName()).data.thethingsnetwork.org/api/v2/query/\(self.name!)"
         let headers = ["Authorization": "key \(Application.getAccessKey())"]
         
         Alamofire.request(url, headers:headers).responseJSON { response in

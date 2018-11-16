@@ -16,6 +16,6 @@ class DeviceCellViewController: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        Name.text = sensor!.transformToBeautiful()
+        Name.text = device!.title!
     }
 }

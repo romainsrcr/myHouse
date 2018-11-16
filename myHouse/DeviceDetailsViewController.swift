@@ -31,7 +31,6 @@ class DeviceDetailsViewController: UIViewController {
         
         for i in 0..<device!.datas[sensor!]!["data"]!.count {
             let x = device!.datas[sensor!]!["date"]![i] as! Date
-            print(type(of: device!.datas[sensor!]!["data"]![i] ))
             let y = device!.datas[sensor!]!["data"]![i] as! Double
             let value = ChartDataEntry(x: x.timeIntervalSince1970, y: y)
             lineChartEntry.append(value)
@@ -53,7 +52,7 @@ class DeviceDetailsViewController: UIViewController {
         xAxis.drawAxisLineEnabled = false
         xAxis.labelPosition = .bottomInside
         xAxis.labelFont = .systemFont(ofSize: 10, weight: .light)
-        xAxis.granularity = 10
+        xAxis.granularity = 0.5
         xAxis.valueFormatter = DateValueFormatter()
         
         let yAxis = ChartView.leftAxis

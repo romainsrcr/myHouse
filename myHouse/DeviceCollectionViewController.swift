@@ -24,15 +24,15 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         let cellWidth: CGFloat
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            cellWidth = ((view.frame.size.width - 20) / 2) - 20
+            cellWidth = ((UIScreen.main.bounds.width - 20) / 2) - 20
         case .pad:
-            cellWidth = ((view.frame.size.width - 20) / 3) - 20
+            cellWidth = ((UIScreen.main.bounds.width - 20) / 3) - 20
         case .unspecified:
-            cellWidth = ((view.frame.size.width - 20) / 2) - 20
+            cellWidth = ((UIScreen.main.bounds.width - 20) / 2) - 20
         case .tv:
-            cellWidth = ((view.frame.size.width - 20) / 5) - 20
+            cellWidth = ((UIScreen.main.bounds.width - 20) / 5) - 20
         case .carPlay:
-            cellWidth = ((view.frame.size.width - 20) / 4) - 20
+            cellWidth = ((UIScreen.main.bounds.width - 20) / 4) - 20
         }
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: cellWidth, height: cellWidth)
