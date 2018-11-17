@@ -15,10 +15,13 @@ import SwiftyJSON
 class Device: NSObject, MKAnnotation {
     
     let title: String?
-    let name: String?
-    var deviceDescription: String
-    private(set) var datas : Dictionary<String, Dictionary<String, [Any]>>
     let coordinate: CLLocationCoordinate2D
+    
+    let name: String?
+    
+    private(set) var deviceDescription: String
+    private(set) var datas : Dictionary<String, Dictionary<String, [Any]>>
+    private(set) var infos : Dictionary<String, String>
     
     init(name: String, description: String, coordinate: CLLocationCoordinate2D) {
         self.title = name.transformToBeautiful()
@@ -26,6 +29,7 @@ class Device: NSObject, MKAnnotation {
         self.coordinate = coordinate
         self.deviceDescription = description
         self.datas = [:]
+        self.infos = [:]
         super.init()
     }
     
@@ -60,6 +64,32 @@ class Device: NSObject, MKAnnotation {
                             }
                         }
                     }
+                }
+                success()
+            }
+            else {
+                print("An error was occured ! Please check your connection.")
+            }
+        }
+    }
+    
+    
+    func getInfo(success: @escaping () -> Void) {
+        
+        let url = "http://eu.thethings.network:8084/applications/\(Application.getName())/devices/\(self.name!)"
+        let headers = ["Authorization": "key \(Application.getAccessKey())"]
+        
+        Alamofire.request(url, headers:headers).responseJSON { response in
+            if (response.result.isSuccess) {
+                if let result = response.result.value {
+                    let resultJSON = JSON(result)
+                    print(resultJSON["lorawan_device"])
+                    self.infos["devEUI"] = resultJSON["lorawan_device"]["dev_eui"].stringValue
+                    self.infos["appEUI"] = resultJSON["lorawan_device"]["app_eui"].stringValue
+                    self.infos["appKEY"] = resultJSON["lorawan_device"]["app_key"].stringValue
+                    self.infos["appSessKEY"] = resultJSON["lorawan_device"]["app_s_key"].stringValue
+                    self.infos["devAddr"] = resultJSON["lorawan_device"]["dev_addr"].stringValue
+                    self.infos["netSessKEY"] = resultJSON["lorawan_device"]["nwk_s_key"].stringValue
                 }
                 success()
             }
