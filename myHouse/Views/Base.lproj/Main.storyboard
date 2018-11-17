@@ -402,9 +402,7 @@
                             <outlet property="delegate" destination="83o-Nu-McL" id="Fkr-F5-PQW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Jxv-ri-DeG">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="7jM-O5-hjh"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Jxv-ri-DeG"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Bc-X7-VxO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
