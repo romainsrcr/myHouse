@@ -8,11 +8,25 @@
 
 import UIKit
 
-class ChannelSettingTableViewController: UITableViewController {
+class ChannelSettingTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var textSetting: UILabel!
+    
+    
+    @IBAction func channelSettingSwitch(_ sender: UISwitch) {
+        if (sender.isOn == false) {
+            textSetting.text = "The channel setting was managing by TTN application"
+        } else {
+            textSetting.text = "You have to complete for each channel what type of data is and the unit"
+        }
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,26 +36,27 @@ class ChannelSettingTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         return cell
     }
-    */
+    
 
+    /*func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> String {
+        return "zizi de Loïc"
+    }*/
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
