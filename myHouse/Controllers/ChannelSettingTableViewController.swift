@@ -15,13 +15,17 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     @IBOutlet weak var textSetting: UILabel!
     
+    @IBOutlet weak var addChannelButton: UIBarButtonItem!
+    
+    
     @IBAction func switchCustomMode(_ sender: UISwitch) {
         if (sender.isOn == false) {
             Application.customMode = false
+            self.addChannelButton.isEnabled = false
             textSetting.text = "The channel setting was managing by TTN application"
-            
         } else {
             Application.customMode = true
+            self.addChannelButton.isEnabled = true
             textSetting.text = "You have to complete for each channel what type of data is and the unit"
         }
         self.tableView.reloadData()
@@ -51,22 +55,22 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if Application.customMode == true {
-            return 1
-        } else {
-            return 1
+        if (section == 1) {
+            return Application.myChannels.count
         }
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell : UITableViewCell
         
-        if indexPath.item == 0 {
+        if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "modeCell", for: indexPath)
             cell.textLabel?.text = "Manage by yourself"
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
+            cell.textLabel?.text = "Channel \(Application.myChannels[indexPath.row].numberChannel)"
         }
         return cell
     }

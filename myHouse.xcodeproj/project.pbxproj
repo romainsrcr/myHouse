@@ -15,6 +15,7 @@
 		1765F49B2181B75B00AF306E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4992181B75B00AF306E /* LaunchScreen.storyboard */; };
 		17D4BCF8219A31B500792836 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4BCF7219A31B500792836 /* SettingTableViewController.swift */; };
 		17FD513E219F2C8C00E6E666 /* ChannelSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */; };
+		17FD514021A5C65E00E6E666 /* ChannelConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513F21A5C65E00E6E666 /* ChannelConfigurationViewController.swift */; };
 		D517FEE1BA3AB3151D27E8CA /* Pods_myHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */; };
 		DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */; };
 		DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */; };
@@ -40,6 +41,7 @@
 		1765F49C2181B75B00AF306E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17D4BCF7219A31B500792836 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelSettingTableViewController.swift; path = myHouse/Controllers/ChannelSettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		17FD513F21A5C65E00E6E666 /* ChannelConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelConfigurationViewController.swift; path = myHouse/Controllers/ChannelConfigurationViewController.swift; sourceTree = SOURCE_ROOT; };
 		3E7578DD35477F8B271C5666 /* Pods-myHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myHouse/Pods-myHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71441577A155FF855541DCA /* Pods-myHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-myHouse/Pods-myHouse.release.xcconfig"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				17D4BCF7219A31B500792836 /* SettingTableViewController.swift */,
 				ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */,
 				17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */,
+				17FD513F21A5C65E00E6E666 /* ChannelConfigurationViewController.swift */,
 				ED0D1E18219EE98300C1312D /* DevicesListSettingTableViewController.swift */,
 				ED065F24219F4A79003879A6 /* DeviceSettingsTableViewController.swift */,
 			);
@@ -286,6 +289,7 @@
 				DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */,
 				ED0D1E19219EE98300C1312D /* DevicesListSettingTableViewController.swift in Sources */,
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
+				17FD514021A5C65E00E6E666 /* ChannelConfigurationViewController.swift in Sources */,
 				ED4BF1F6219DC5C400EF6FF8 /* DateValueFormatter.swift in Sources */,
 				172D050A21984EE100B4A22F /* Switcher.swift in Sources */,
 				17D4BCF8219A31B500792836 /* SettingTableViewController.swift in Sources */,
