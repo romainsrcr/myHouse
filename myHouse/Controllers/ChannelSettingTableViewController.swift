@@ -8,24 +8,29 @@
 
 import UIKit
 
-class ChannelSettingTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var textSetting: UILabel!
     
-    
-    @IBAction func channelSettingSwitch(_ sender: UISwitch) {
+    @IBAction func switchCustomMode(_ sender: UISwitch) {
         if (sender.isOn == false) {
+            Application.customMode = false
             textSetting.text = "The channel setting was managing by TTN application"
+            
         } else {
+            Application.customMode = true
             textSetting.text = "You have to complete for each channel what type of data is and the unit"
         }
+        self.tableView.reloadData()
+        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -33,29 +38,38 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDataSource
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        if Application.customMode == true {
+            return 2
+        } else {
+            return 1
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 1
+        if Application.customMode == true {
+            return 1
+        } else {
+            return 1
+        }
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        let cell : UITableViewCell
+        
+        if indexPath.item == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "modeCell", for: indexPath)
+            cell.textLabel?.text = "Manage by yourself"
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
+        }
         return cell
     }
-    
-
-    /*func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> String {
-        return "zizi de Loïc"
-    }*/
     
     /*
     // Override to support conditional editing of the table view.

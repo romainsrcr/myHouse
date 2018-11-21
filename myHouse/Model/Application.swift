@@ -21,6 +21,7 @@ class Application: NSObject{
     // Properties of the application
     private static var name = "project_iot_dtu"
     private static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
+    static var customMode: Bool = true
     
     //Interresting information
     private(set) static var devices: [Device] = []

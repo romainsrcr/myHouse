@@ -18,6 +18,7 @@ class SettingTableViewController: UITableViewController {
             UserDefaults.standard.set(false, forKey: "status")
             UserDefaults.standard.removeObject(forKey: "appName")
             UserDefaults.standard.removeObject(forKey: "accessKey")
+            UserDefaults.standard.removeObject(forKey: "customMode")
             Switcher.updateRootVC()
         }
     }
