@@ -35,12 +35,15 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
     }
     
     
@@ -70,9 +73,24 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             cell.textLabel?.text = "Manage by yourself"
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
-            cell.textLabel?.text = "Channel \(Application.myChannels[indexPath.row].numberChannel)"
+            
+            let keyOfmyChannelDictionary = Application.myChannels.keys
+            let intArrayToIterate = Array(keyOfmyChannelDictionary.map { Int($0) })
+            
+            cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row])"
+            
         }
         return cell
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "showModifyAndDeleteChannelSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! ChannelDeleteAnsModifyViewController
+                destination.channel = Application.myChannels[indexPath.row]
+            }
+        }
     }
     
     /*

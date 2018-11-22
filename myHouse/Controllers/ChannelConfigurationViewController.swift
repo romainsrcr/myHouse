@@ -8,29 +8,51 @@
 
 import UIKit
 
-class ChannelConfigurationViewController: UIViewController {
+class ChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var channelNumberLabel: UILabel!
+    
+    @IBOutlet weak var channelNumberTextField: UITextField!
     
     @IBOutlet weak var typeOfDataTextField: UITextField!
     
     @IBOutlet weak var unitTextField: UITextField!
     
+    @IBOutlet weak var typeOfUplink: UIPickerView!
+    
+    var pickerData: [String] = []
+    var type : String = ""
+    
     @IBAction func saveChannelConfiguration(_ sender: UIButton) {
-        Application.myChannels.append(Channel(numberChannel: Application.myChannels.count + 1, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!))
+       let channel: Int? = Int(channelNumberTextField.text!)
+        Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        channelNumberLabel.text = "Channel \(Application.myChannels.count + 1)"
-        // Do any additional setup after loading the view.
         
-        
+        pickerData = ["Int","Float", "String"]
         
     }
     
-
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        type = pickerData[row]
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
