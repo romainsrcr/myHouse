@@ -223,7 +223,7 @@
                             <constraint firstItem="8Q9-p7-DQW" firstAttribute="top" secondItem="F1z-oZ-I1S" secondAttribute="bottom" constant="70" id="aG2-lB-dYn"/>
                             <constraint firstItem="F1z-oZ-I1S" firstAttribute="centerY" secondItem="kjF-Q0-50M" secondAttribute="centerY" id="ahN-LP-EYP"/>
                             <constraint firstItem="8Fe-tY-N6J" firstAttribute="centerX" secondItem="kjF-Q0-50M" secondAttribute="centerX" id="iVo-Fw-Jhc"/>
-                            <constraint firstItem="kjF-Q0-50M" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IPB-Xh-CFj" secondAttribute="trailing" constant="250" id="lDn-jY-fOt"/>
+                            <constraint firstItem="kjF-Q0-50M" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="IPB-Xh-CFj" secondAttribute="trailing" constant="71" id="lDn-jY-fOt"/>
                             <constraint firstItem="8Q9-p7-DQW" firstAttribute="centerX" secondItem="kjF-Q0-50M" secondAttribute="centerX" id="mUg-vd-2S7"/>
                             <constraint firstItem="F1z-oZ-I1S" firstAttribute="centerX" secondItem="kjF-Q0-50M" secondAttribute="centerX" id="qP1-b0-d2E"/>
                             <constraint firstItem="8Fe-tY-N6J" firstAttribute="centerX" secondItem="kjF-Q0-50M" secondAttribute="centerX" id="sn1-Dk-Emb"/>
@@ -239,7 +239,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVI-1y-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1076.5625" y="-21.6796875"/>
+            <point key="canvasLocation" x="-1076.8115942028987" y="-22.098214285714285"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -728,7 +728,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bju-Tx-7xb">
                             <connections>
                                 <action selector="addChannel:" destination="16L-BK-V9K" id="Y55-Rk-3dG"/>
-                                <segue destination="VgK-Qq-Bla" kind="show" id="9Qp-Yg-Cww"/>
+                                <segue destination="VgK-Qq-Bla" kind="presentation" identifier="toAddChannel" id="9Qp-Yg-Cww"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -750,42 +750,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-Xo-Hss">
+                                <rect key="frame" x="0.0" y="44" width="453" height="44"/>
+                                <items>
+                                    <navigationItem title="Adding Channel" id="cTL-5d-iKm">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="D9m-3S-bnp">
+                                            <connections>
+                                                <segue destination="Dt0-fv-aog" kind="unwind" unwindAction="unwindToChannelViewControllerWithSegue:" id="iEa-Yr-8F3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="8H8-1u-Cjw">
+                                            <connections>
+                                                <action selector="saveButton:" destination="VgK-Qq-Bla" id="vcp-TP-2uJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type of data" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="exY-PT-2rb">
-                                <rect key="frame" x="71" y="294" width="272" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="272" id="9nL-Z5-PP3"/>
-                                </constraints>
+                                <rect key="frame" x="71" y="354" width="272" height="30"/>
                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odW-eC-BCb">
-                                <rect key="frame" x="71" y="404" width="272" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="272" id="Vbm-u1-DnP"/>
-                                </constraints>
+                                <rect key="frame" x="71" y="476" width="272" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8A-UO-8GX">
-                                <rect key="frame" x="71" y="724" width="272" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="GS1-Kw-DNa"/>
-                                </constraints>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="saveChannelConfiguration:" destination="VgK-Qq-Bla" eventType="touchUpInside" id="IqA-4P-H3d"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Number of channel" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jrY-kH-Pmt">
-                                <rect key="frame" x="71" y="188" width="272" height="30"/>
+                                <rect key="frame" x="71" y="234" width="272" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="iEB-O7-Yno"/>
+                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Izj-OX-y27">
-                                <rect key="frame" x="0.0" y="475" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="573" width="414" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="VgK-Qq-Bla" id="q2f-s6-6y1"/>
                                     <outlet property="delegate" destination="VgK-Qq-Bla" id="YP1-OC-Fvh"/>
@@ -794,25 +798,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Izj-OX-y27" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" id="3go-ZA-obm"/>
-                            <constraint firstItem="jrY-kH-Pmt" firstAttribute="top" secondItem="4To-hN-DWt" secondAttribute="top" constant="100" id="4Vr-yI-L7g"/>
-                            <constraint firstItem="odW-eC-BCb" firstAttribute="top" secondItem="exY-PT-2rb" secondAttribute="bottom" constant="80" id="5pg-L4-iwF"/>
-                            <constraint firstItem="4To-hN-DWt" firstAttribute="trailing" secondItem="odW-eC-BCb" secondAttribute="trailing" constant="71" id="HBR-v8-g0p"/>
-                            <constraint firstItem="Izj-OX-y27" firstAttribute="top" secondItem="odW-eC-BCb" secondAttribute="bottom" constant="41" id="LhG-pE-YeR"/>
-                            <constraint firstItem="Izj-OX-y27" firstAttribute="centerX" secondItem="4To-hN-DWt" secondAttribute="centerX" id="OSi-n5-tKb"/>
-                            <constraint firstItem="exY-PT-2rb" firstAttribute="centerX" secondItem="4To-hN-DWt" secondAttribute="centerX" id="RIv-MC-wzk"/>
-                            <constraint firstItem="exY-PT-2rb" firstAttribute="top" secondItem="jrY-kH-Pmt" secondAttribute="bottom" constant="76" id="RLu-u2-CWx"/>
-                            <constraint firstItem="4To-hN-DWt" firstAttribute="trailing" secondItem="jrY-kH-Pmt" secondAttribute="trailing" constant="71" id="avo-fK-fIa"/>
-                            <constraint firstItem="odW-eC-BCb" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" constant="71" id="bJg-MH-RdF"/>
-                            <constraint firstItem="jrY-kH-Pmt" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" constant="71" id="iXw-qv-57W"/>
-                            <constraint firstItem="B8A-UO-8GX" firstAttribute="top" secondItem="Izj-OX-y27" secondAttribute="bottom" constant="33" id="inG-QZ-j4W"/>
-                            <constraint firstItem="B8A-UO-8GX" firstAttribute="centerX" secondItem="odW-eC-BCb" secondAttribute="centerX" id="jfs-wJ-lt0"/>
-                            <constraint firstItem="B8A-UO-8GX" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" constant="71" id="sAp-8B-pW4"/>
-                            <constraint firstItem="4To-hN-DWt" firstAttribute="trailing" secondItem="B8A-UO-8GX" secondAttribute="trailing" constant="71" id="tWz-ln-vv3"/>
-                            <constraint firstItem="Izj-OX-y27" firstAttribute="trailing" secondItem="4To-hN-DWt" secondAttribute="trailing" id="viy-qj-ckA"/>
+                            <constraint firstItem="4To-hN-DWt" firstAttribute="trailing" secondItem="jrY-kH-Pmt" secondAttribute="trailing" constant="71" id="5Yq-Lz-FNo"/>
+                            <constraint firstItem="odW-eC-BCb" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" constant="71" id="8ak-KO-MAq"/>
+                            <constraint firstItem="nMh-Xo-Hss" firstAttribute="leading" secondItem="Izj-OX-y27" secondAttribute="leading" id="Ge6-tO-XVt"/>
+                            <constraint firstItem="exY-PT-2rb" firstAttribute="top" secondItem="jrY-kH-Pmt" secondAttribute="bottom" constant="90" id="LNX-FM-EEN"/>
+                            <constraint firstItem="4To-hN-DWt" firstAttribute="trailing" secondItem="odW-eC-BCb" secondAttribute="trailing" constant="71" id="LoJ-Hs-9Xd"/>
+                            <constraint firstItem="jrY-kH-Pmt" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" constant="71" id="PWJ-KT-JMg"/>
+                            <constraint firstItem="nMh-Xo-Hss" firstAttribute="top" secondItem="4To-hN-DWt" secondAttribute="top" id="VYr-jg-cHW"/>
+                            <constraint firstItem="Izj-OX-y27" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" id="WQf-gG-HUZ"/>
+                            <constraint firstItem="Izj-OX-y27" firstAttribute="trailing" secondItem="4To-hN-DWt" secondAttribute="trailing" id="agy-DX-Y1d"/>
+                            <constraint firstItem="nMh-Xo-Hss" firstAttribute="trailing" secondItem="Izj-OX-y27" secondAttribute="trailing" id="aiF-no-gLc"/>
+                            <constraint firstItem="exY-PT-2rb" firstAttribute="leading" secondItem="4To-hN-DWt" secondAttribute="leading" constant="71" id="tmx-fR-P47"/>
+                            <constraint firstItem="Izj-OX-y27" firstAttribute="top" secondItem="odW-eC-BCb" secondAttribute="bottom" constant="67" id="wQR-nI-dhh"/>
+                            <constraint firstItem="4To-hN-DWt" firstAttribute="trailing" secondItem="exY-PT-2rb" secondAttribute="trailing" constant="71" id="yIh-J9-rNy"/>
+                            <constraint firstItem="odW-eC-BCb" firstAttribute="top" secondItem="exY-PT-2rb" secondAttribute="bottom" constant="92" id="zFM-J5-vsN"/>
+                            <constraint firstItem="jrY-kH-Pmt" firstAttribute="top" secondItem="nMh-Xo-Hss" secondAttribute="bottom" constant="146" id="ziX-Xm-L9P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4To-hN-DWt"/>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="channelNumberTextField" destination="jrY-kH-Pmt" id="LdR-MY-IKR"/>
                         <outlet property="typeOfDataTextField" destination="exY-PT-2rb" id="siF-rQ-QXR"/>
@@ -821,6 +825,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9T2-8J-Vwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Dt0-fv-aog" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2679.7101449275365" y="776.78571428571422"/>
         </scene>
@@ -874,9 +879,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="enU-ak-Gko"/>
                                 </constraints>
                                 <state key="normal" title="Modify"/>
-                                <connections>
-                                    <action selector="saveChannelConfiguration:" destination="VgK-Qq-Bla" eventType="touchUpInside" id="OJI-dt-Z3r"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -22,18 +22,19 @@ class ChannelConfigurationViewController: UIViewController, UIPickerViewDelegate
     var pickerData: [String] = []
     var type : String = ""
     
-    @IBAction func saveChannelConfiguration(_ sender: UIButton) {
-       let channel: Int? = Int(channelNumberTextField.text!)
+
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        let channel: Int? = Int(channelNumberTextField.text!)
         Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pickerData = ["Int","Float", "String"]
         
     }
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -50,7 +51,6 @@ class ChannelConfigurationViewController: UIViewController, UIPickerViewDelegate
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         type = pickerData[row]
     }
-    
     
     
     /*

@@ -34,18 +34,13 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        Application.customMode == false ? (self.addChannelButton.isEnabled = false) : (self.addChannelButton.isEnabled = true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        
     }
-    
     
     // MARK: - Table view data source
 
@@ -91,6 +86,10 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
                 destination.channel = Application.myChannels[indexPath.row]
             }
         }
+    }
+    
+    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {
+        
     }
     
     /*
