@@ -8,7 +8,7 @@
 
 import UIKit
 
-class loginViewController: UIViewController {
+class LoginViewController: UIViewController {
 
     @IBOutlet weak var appNameTextField: UITextField!
     
