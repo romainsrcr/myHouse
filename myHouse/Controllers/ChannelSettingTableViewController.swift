@@ -8,40 +8,104 @@
 
 import UIKit
 
-class ChannelSettingTableViewController: UITableViewController {
-
+class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    var firstCell : UITableViewCell?
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    @IBOutlet weak var textSetting: UILabel!
+    
+    @IBOutlet weak var addChannelButton: UIBarButtonItem!
+    
+    @IBAction func switchCustomMode(_ sender: UISwitch) {
+        if (sender.isOn == false) {
+            updateMode(mode: false)
+            textSetting.text = "You just have to complete the type of data and the unit"
+        } else {
+            updateMode(mode: true)
+            textSetting.text = "You have to complete all informations about the channel that you're using"
+        }
+        reloadView()
+    }
+    
+    func checkAdvancedMode() -> Bool {
+        if (Application.advancedMode == false) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func updateMode(mode : Bool) {
+        Application.advancedMode = mode
+    }
+    
+    func reloadView() {
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //Application.customMode == false ? (self.addChannelButton.isEnabled = false) : (self.addChannelButton.isEnabled = true)
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadView()
+        
+    }
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if checkAdvancedMode() == true {
+            return 2
+        } else {
+            return 1
+        }
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == 1) {
+            return Application.myChannels.count
+        }
+        return 1
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell : UITableViewCell
+        
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCell(withIdentifier: "modeCell", for: indexPath)
+            cell.textLabel?.text = "Advanced Mode"
+            firstCell = cell
+        } else {
+            cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
+            
+            let keyOfmyChannelDictionary = Application.myChannels.keys
+            let intArrayToIterate = Array(keyOfmyChannelDictionary.map { Int($0) })
+            
+            cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row])"
+            
+        }
         return cell
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         if segue.identifier == "showModifyAndDeleteChannelSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! ChannelDeleteAnsModifyViewController
+                destination.channel = Application.myChannels[indexPath.row]
+            }
+        }
+    }
+    
+    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
