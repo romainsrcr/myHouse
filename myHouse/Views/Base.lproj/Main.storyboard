@@ -176,7 +176,7 @@
         <!--Login View Controller-->
         <scene sceneID="LZX-E9-XlD">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="0u9-UL-5ri" customClass="loginViewController" customModule="myHouse" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="0u9-UL-5ri" customClass="LoginViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P53-cY-800">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -670,7 +670,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The channel setting was managing by TTN application" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="388" translatesAutoresizingMaskIntoConstraints="NO" id="bl6-iH-BdK">
-                                            <rect key="frame" x="13" y="0.0" width="388" height="53"/>
+                                            <rect key="frame" x="13" y="0.0" width="388" height="17"/>
                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
@@ -678,13 +678,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="bl6-iH-BdK" firstAttribute="leading" secondItem="PUs-on-8L8" secondAttribute="leading" constant="13" id="8we-Rq-8b0"/>
-                                        <constraint firstItem="bl6-iH-BdK" firstAttribute="top" secondItem="PUs-on-8L8" secondAttribute="top" id="CB9-eY-LSK"/>
                                         <constraint firstAttribute="trailing" secondItem="bl6-iH-BdK" secondAttribute="trailing" constant="13" id="bPa-3q-eLd"/>
-                                        <constraint firstAttribute="bottom" secondItem="bl6-iH-BdK" secondAttribute="bottom" constant="8" id="fLi-CE-uk3"/>
+                                        <constraint firstItem="bl6-iH-BdK" firstAttribute="top" secondItem="PUs-on-8L8" secondAttribute="top" id="gxh-ZK-xDx"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="modeCell" id="d4M-pb-wMf">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="modeCell" id="d4M-pb-wMf" customClass="ChoiceTableViewCell" customModule="myHouse" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d4M-pb-wMf" id="EOf-6r-CcX">
@@ -695,11 +694,14 @@
                                                     <rect key="frame" x="345" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
-                                                        <action selector="switchCustomMode:" destination="16L-BK-V9K" eventType="valueChanged" id="ErD-7s-nBt"/>
+                                                        <action selector="switchCustomMode:" destination="16L-BK-V9K" eventType="valueChanged" id="AlN-82-U0Y"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="switchButton" destination="ooy-cF-7uF" id="x4R-LZ-JBs"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="channelCell" id="cVT-BT-KO9">
                                         <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
@@ -742,16 +744,16 @@
             </objects>
             <point key="canvasLocation" x="1884" y="775"/>
         </scene>
-        <!--Channel Configuration View Controller-->
+        <!--Advanced Mode Channel Configuration View Controller-->
         <scene sceneID="tkf-8O-UgA">
             <objects>
-                <viewController id="VgK-Qq-Bla" customClass="ChannelConfigurationViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VgK-Qq-Bla" customClass="AdvancedModeChannelConfigurationViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l62-Yr-GVE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMh-Xo-Hss">
-                                <rect key="frame" x="0.0" y="44" width="453" height="44"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Adding Channel" id="cTL-5d-iKm">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="D9m-3S-bnp">
@@ -827,7 +829,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9T2-8J-Vwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Dt0-fv-aog" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2679.7101449275365" y="776.78571428571422"/>
+            <point key="canvasLocation" x="2722" y="670"/>
         </scene>
         <!--Channel Delete Ans Modify View Controller-->
         <scene sceneID="fEc-hB-wTp">
@@ -909,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHG-j0-z08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2679.7101449275365" y="1611.8303571428571"/>
+            <point key="canvasLocation" x="1883" y="1599"/>
         </scene>
         <!--Item-->
         <scene sceneID="Rqy-Uw-LmD">

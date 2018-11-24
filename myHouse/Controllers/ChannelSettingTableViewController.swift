@@ -8,8 +8,10 @@
 
 import UIKit
 
-
 class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    
+    var firstCell : UITableViewCell?
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -17,35 +19,47 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     @IBOutlet weak var addChannelButton: UIBarButtonItem!
     
-    
     @IBAction func switchCustomMode(_ sender: UISwitch) {
         if (sender.isOn == false) {
-            Application.customMode = false
-            self.addChannelButton.isEnabled = false
-            textSetting.text = "The channel setting was managing by TTN application"
+            updateMode(mode: false)
+            textSetting.text = "You just have to complete the type of data and the unit"
         } else {
-            Application.customMode = true
-            self.addChannelButton.isEnabled = true
-            textSetting.text = "You have to complete for each channel what type of data is and the unit"
+            updateMode(mode: true)
+            textSetting.text = "You have to complete all informations about the channel that you're using"
         }
+        reloadView()
+    }
+    
+    func checkAdvancedMode() -> Bool {
+        if (Application.advancedMode == false) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    func updateMode(mode : Bool) {
+        Application.advancedMode = mode
+    }
+    
+    func reloadView() {
         self.tableView.reloadData()
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Application.customMode == false ? (self.addChannelButton.isEnabled = false) : (self.addChannelButton.isEnabled = true)
+        //Application.customMode == false ? (self.addChannelButton.isEnabled = false) : (self.addChannelButton.isEnabled = true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
+        reloadView()
         
     }
     
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if Application.customMode == true {
+        if checkAdvancedMode() == true {
             return 2
         } else {
             return 1
@@ -65,7 +79,8 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "modeCell", for: indexPath)
-            cell.textLabel?.text = "Manage by yourself"
+            cell.textLabel?.text = "Advanced Mode"
+            firstCell = cell
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
             
@@ -77,7 +92,6 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         }
         return cell
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "showModifyAndDeleteChannelSegue" {

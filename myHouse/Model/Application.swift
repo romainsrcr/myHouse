@@ -27,7 +27,7 @@ class Application: NSObject{
     // Properties of the application
     private static var name = "project_iot_dtu"
     private static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
-    static var customMode: Bool = false
+    static var advancedMode: Bool = false
     
     static var myChannels : [Int : Channel] = [:]
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     
     @IBOutlet weak var channelNumberTextField: UITextField!
