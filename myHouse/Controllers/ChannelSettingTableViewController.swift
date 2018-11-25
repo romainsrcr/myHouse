@@ -71,7 +71,6 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             
             let keyOfmyChannelDictionary = Application.myChannels.keys
             let intArrayToIterate = Array(keyOfmyChannelDictionary.map { Int($0) })
-            
             cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row])"
             
         }
@@ -82,7 +81,8 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
          if segue.identifier == "showModifyAndDeleteChannelSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! ChannelDeleteAnsModifyViewController
-                destination.channel = Application.myChannels[indexPath.row]
+                let i = Array(Application.myChannels.keys)[indexPath.row]
+                destination.channel = Application.myChannels[i]
             }
         }
     }
