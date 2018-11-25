@@ -51,7 +51,7 @@ class DeviceDetailsViewController: UIViewController {
         xAxis.drawAxisLineEnabled = false
         xAxis.labelPosition = .bottomInside
         xAxis.labelFont = .systemFont(ofSize: 10, weight: .light)
-        xAxis.granularity = 0.5
+        xAxis.labelCount = 4
         xAxis.valueFormatter = DateValueFormatter()
         
         let yAxis = ChartView.leftAxis
