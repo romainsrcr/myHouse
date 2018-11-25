@@ -12,7 +12,6 @@ import Charts
 class DeviceDetailsViewController: UIViewController {
     
     var device: Device?
-    var lineChartEntry = [ChartDataEntry]()
     var sensor: String?
     
     @IBOutlet weak var DescriptionView: UILabel!
@@ -21,14 +20,14 @@ class DeviceDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DescriptionView.text = self.device!.deviceDescription
-        self.device!.getData(success: {})
+        self.device!.getData(success: { self.updateGraoh() })
         updateGraoh()
     }
     
     
     
     func updateGraoh(){
-        
+        var lineChartEntry = [ChartDataEntry]()
         for i in 0..<device!.datas[sensor!]!["data"]!.count {
             let x = device!.datas[sensor!]!["date"]![i] as! Date
             let y = device!.datas[sensor!]!["data"]![i] as! Double
@@ -36,7 +35,7 @@ class DeviceDetailsViewController: UIViewController {
             lineChartEntry.append(value)
         }
         
-        let line1 = LineChartDataSet(values: lineChartEntry, label: "Number")
+        let line1 = LineChartDataSet(values: lineChartEntry, label: self.sensor)
         line1.setColor(UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1))
         line1.drawFilledEnabled = true
         line1.fillColor = (UIColor(red: 0/255, green: 122/255, blue: 255/255, alpha: 1))
@@ -66,6 +65,7 @@ class DeviceDetailsViewController: UIViewController {
         ChartView.setScaleEnabled(true)
         ChartView.animate(xAxisDuration: 1, yAxisDuration: 1)
         ChartView.data = data
+
         
     }
 }
