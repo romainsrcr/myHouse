@@ -15,6 +15,11 @@ class ChoiceTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if checkAdvancedMode() == false {
+            switchButton.isOn = false
+        } else {
+            switchButton.isOn = true
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

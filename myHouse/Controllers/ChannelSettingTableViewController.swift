@@ -10,36 +10,22 @@ import UIKit
 
 class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     var firstCell : UITableViewCell?
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var textSetting: UILabel!
-    
-    @IBOutlet weak var addChannelButton: UIBarButtonItem!
+    @IBOutlet weak var textSettingComment: UILabel!
     
     @IBAction func switchCustomMode(_ sender: UISwitch) {
-        if (sender.isOn == false) {
-            updateMode(mode: false)
-            textSetting.text = "You just have to complete the type of data and the unit"
-        } else {
-            updateMode(mode: true)
-            textSetting.text = "You have to complete all informations about the channel that you're using"
-        }
-        reloadView()
+        textSettingComment.text = updateMode(mode : sender.isOn)
     }
     
-    func checkAdvancedMode() -> Bool {
-        if (Application.advancedMode == false) {
-            return false
+    @IBAction func addButton(_ sender: UIBarButtonItem) {
+        if checkAdvancedMode() == true {
+            self.performSegue(withIdentifier: "AdvancedModeAddingChannel", sender: nil)
         } else {
-            return true
+            self.performSegue(withIdentifier: "NormalModeAddInformation", sender: nil)
         }
-    }
-    
-    func updateMode(mode : Bool) {
-        Application.advancedMode = mode
     }
     
     func reloadView() {
@@ -48,7 +34,6 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Application.customMode == false ? (self.addChannelButton.isEnabled = false) : (self.addChannelButton.isEnabled = true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,7 +44,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if checkAdvancedMode() == true {
+        if checkAdvancedMode() == true  && Application.myChannels.count != 0{
             return 2
         } else {
             return 1

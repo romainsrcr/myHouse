@@ -14,6 +14,8 @@
 		1765F4982181B75B00AF306E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4972181B75B00AF306E /* Assets.xcassets */; };
 		1765F49B2181B75B00AF306E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4992181B75B00AF306E /* LaunchScreen.storyboard */; };
 		1795CA0921A822740001FEF8 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */; };
+		1795CA1121AA1E4B0001FEF8 /* toolFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1021AA1E4B0001FEF8 /* toolFunction.swift */; };
+		1795CA1321AA2B930001FEF8 /* NormalModeConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */; };
 		17D4BCF8219A31B500792836 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4BCF7219A31B500792836 /* SettingTableViewController.swift */; };
 		17FD513E219F2C8C00E6E666 /* ChannelSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */; };
 		17FD514021A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513F21A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift */; };
@@ -42,6 +44,8 @@
 		1765F49A2181B75B00AF306E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1765F49C2181B75B00AF306E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
+		1795CA1021AA1E4B0001FEF8 /* toolFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = toolFunction.swift; path = myHouse/Tools/toolFunction.swift; sourceTree = SOURCE_ROOT; };
+		1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalModeConfigurationViewController.swift; sourceTree = "<group>"; };
 		17D4BCF7219A31B500792836 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelSettingTableViewController.swift; path = myHouse/Controllers/ChannelSettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		17FD513F21A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedModeChannelConfigurationViewController.swift; path = myHouse/Controllers/AdvancedModeChannelConfigurationViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -132,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				ED08BD70219C775400D3A18A /* Extensions.swift */,
+				1795CA1021AA1E4B0001FEF8 /* toolFunction.swift */,
 				ED4BF1F5219DC5C400EF6FF8 /* DateValueFormatter.swift */,
 				172D050921984EE100B4A22F /* Switcher.swift */,
 				1765F48E2181B75A00AF306E /* AppDelegate.swift */,
@@ -152,6 +157,7 @@
 		ED0D1E17219EE5E600C1312D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */,
 				172D05072198481100B4A22F /* LoginViewController.swift */,
 				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */,
 				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
@@ -295,6 +301,7 @@
 				DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */,
 				ED0D1E19219EE98300C1312D /* DevicesListSettingTableViewController.swift in Sources */,
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
+				1795CA1321AA2B930001FEF8 /* NormalModeConfigurationViewController.swift in Sources */,
 				17FD514021A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift in Sources */,
 				ED4BF1F6219DC5C400EF6FF8 /* DateValueFormatter.swift in Sources */,
 				172D050A21984EE100B4A22F /* Switcher.swift in Sources */,
@@ -310,6 +317,7 @@
 				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewController.swift in Sources */,
 				ED08BD71219C775400D3A18A /* Extensions.swift in Sources */,
 				ED5D42D721998F0E0026D73E /* DeviceDetailsViewController.swift in Sources */,
+				1795CA1121AA1E4B0001FEF8 /* toolFunction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

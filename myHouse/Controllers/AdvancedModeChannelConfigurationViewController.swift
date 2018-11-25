@@ -27,6 +27,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         let channel: Int? = Int(channelNumberTextField.text!)
         Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
         
+        
     }
     
     override func viewDidLoad() {
