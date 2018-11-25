@@ -11,11 +11,15 @@ import UIKit
 class DeviceCellViewController: UICollectionViewCell {
     var device: Device?
     var sensor: String?
+    var valueString: String?
     
+    @IBOutlet weak var Value: UILabel!
     @IBOutlet weak var Name: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
         Name.text = device!.title!
+        valueString = (device!.datas[sensor!]!["data"]!.last! as! Double).clean
+        Value.text = (valueString!)
     }
 }
