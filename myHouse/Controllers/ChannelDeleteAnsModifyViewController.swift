@@ -25,10 +25,7 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     @IBOutlet weak var unitTextField: UITextField!
     
     @IBOutlet weak var typeOfUplink: UIPickerView!
-    
-    @IBAction func deleteChannel(_ sender: UIBarButtonItem) {
-        Application.myChannels.removeValue(forKey: channel!.numberChannel)
-    }
+
 
     @IBAction func modifyChannel(_ sender: UIButton) {
         //Remove the old channel
@@ -69,7 +66,11 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
         type = pickerData[row]
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "deleteChannel" {
+            Application.myChannels.removeValue(forKey: channel!.numberChannel)
+        }
+    }
 
     /*
     // MARK: - Navigation

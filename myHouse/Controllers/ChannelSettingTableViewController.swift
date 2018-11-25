@@ -87,9 +87,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
-    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {
-        
-    }
+    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {}
     
     /*
     // Override to support conditional editing of the table view.

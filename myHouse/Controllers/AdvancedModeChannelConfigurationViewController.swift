@@ -20,20 +20,13 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
     @IBOutlet weak var typeOfUplink: UIPickerView!
     
     var pickerData: [String] = []
-    var type : String = ""
     
-
-    @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        let channel: Int? = Int(channelNumberTextField.text!)
-        Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
-        
-        
-    }
+    var type : String = "Int"       // Initialisazion of type variable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pickerData = ["Int","Float", "String"]
-        
+        pickerData = ["Int", "Float", "String"]
+
     }
     
     
@@ -53,7 +46,12 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         type = pickerData[row]
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "saveAdvancedMode" {
+            let channel: Int? = Int(channelNumberTextField.text!)
+            Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        }
+    }
     /*
     // MARK: - Navigation
 

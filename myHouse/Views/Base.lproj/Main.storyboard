@@ -659,7 +659,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jt9-BX-IXd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="jt9-BX-IXd">
                                 <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -685,7 +685,7 @@
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d4M-pb-wMf" id="EOf-6r-CcX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ooy-cF-7uF">
@@ -705,7 +705,7 @@
                                         <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cVT-BT-KO9" id="LyP-am-Kh9">
-                                            <rect key="frame" x="0.0" y="0.0" width="362" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -756,12 +756,12 @@
                                     <navigationItem title="Advanced Mode" id="cTL-5d-iKm">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="D9m-3S-bnp">
                                             <connections>
-                                                <segue destination="Dt0-fv-aog" kind="unwind" unwindAction="unwindToChannelViewControllerWithSegue:" id="iEa-Yr-8F3"/>
+                                                <segue destination="Dt0-fv-aog" kind="unwind" identifier="cancelAdvancedMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="iEa-Yr-8F3"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="8H8-1u-Cjw">
                                             <connections>
-                                                <action selector="saveButton:" destination="VgK-Qq-Bla" id="vcp-TP-2uJ"/>
+                                                <segue destination="Dt0-fv-aog" kind="unwind" identifier="saveAdvancedMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="iFX-Nr-kDv"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -859,7 +859,7 @@
                                     <navigationItem title="Normal Mode" id="zXp-ij-4X9">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WcF-Je-NZl">
                                             <connections>
-                                                <segue destination="kGo-rF-w6O" kind="unwind" unwindAction="unwindToChannelViewControllerWithSegue:" id="Su3-9D-4D6"/>
+                                                <segue destination="kGo-rF-w6O" kind="unwind" identifier="cancelNormalMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="Su3-9D-4D6"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="yy0-Je-ipn"/>
@@ -900,12 +900,12 @@
                                     <navigationItem title="Modify channel" id="2nG-uC-HiY">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jSi-zj-0AG">
                                             <connections>
-                                                <segue destination="vLi-MS-Vj7" kind="unwind" unwindAction="unwindToChannelViewControllerWithSegue:" id="Lgk-RL-a4V"/>
+                                                <segue destination="vLi-MS-Vj7" kind="unwind" identifier="cancelModifyChannel" unwindAction="unwindToChannelViewControllerWithSegue:" id="Lgk-RL-a4V"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="ZNc-Zc-bq6">
                                             <connections>
-                                                <action selector="deleteChannel:" destination="mHR-bc-0tx" id="kgf-6H-izc"/>
+                                                <segue destination="vLi-MS-Vj7" kind="unwind" identifier="deleteChannel" unwindAction="unwindToChannelViewControllerWithSegue:" id="6EC-GJ-B5p"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
