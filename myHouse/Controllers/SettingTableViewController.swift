@@ -10,32 +10,43 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
     
+    let alertLogOut = UIAlertController(title: "Logout", message: "Are you sure you want to logout ?", preferredStyle: .actionSheet)
     
     @IBOutlet weak var appNameInSetting: UILabel!
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
-            UserDefaults.standard.set(false, forKey: "status")
-            UserDefaults.standard.removeObject(forKey: "appName")
-            UserDefaults.standard.removeObject(forKey: "accessKey")
-            // maybe check if application is in custom mode
-            Switcher.updateRootVC()
+            self.present(alertLogOut, animated: true)
         }
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        override func viewDidLoad() {
-            super.viewDidLoad()
-            appNameInSetting.text = Application.getName().replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
-            
+        alertLogOut.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { action in
+            self.logOut()
+        }))
+        alertLogOut.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        // Display name of application more natural
+        appNameInSetting.text = Application.getName().replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
+        
+        
             
             // Uncomment the following line to preserve selection between presentations
             // self.clearsSelectionOnViewWillAppear = false
             
             // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
             // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        }
+    }
+    
+    func logOut() {
+        UserDefaults.standard.set(false, forKey: "status")
+        UserDefaults.standard.removeObject(forKey: "appName")
+        UserDefaults.standard.removeObject(forKey: "accessKey")
+        
+        Switcher.updateRootVC()
+    }
         
         // MARK: - Table view data source
             

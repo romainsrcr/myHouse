@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
-    let alertLogin = UIAlertController(title: "Empty text fields", message: "Please fill the missing field", preferredStyle: .alert)
+    let alertLogIn = UIAlertController(title: "Empty text fields", message: "Please fill the missing field", preferredStyle: .alert)
 
     @IBOutlet weak var appNameTextField: UITextField!
     
@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
         
         // Check if one the textFields are empty
         guard let checkIfAppNameTextFieldIsEmpty = appNameTextField.text, let checkIfAccessKeyTextFieldIsEmpty = accessKeyTextField.text, !checkIfAppNameTextFieldIsEmpty.isEmpty && !checkIfAccessKeyTextFieldIsEmpty.isEmpty else {
-            return self.present(alertLogin, animated: true, completion: nil)
+            return self.present(alertLogIn, animated: true, completion: nil)
         }
         // Saving in UserDefault App information
         UserDefaults.standard.set(appNameTextField.text, forKey: "appName")
@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-        alertLogin.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertLogIn.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
      
     }
 }
