@@ -9,23 +9,32 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    let alertLogin = UIAlertController(title: "Empty text fields", message: "Please fill the missing field", preferredStyle: .alert)
 
     @IBOutlet weak var appNameTextField: UITextField!
     
     @IBOutlet weak var accessKeyTextField: UITextField!
     
     @IBAction func loginButtonTapped(_ sender: Any) {
+        
+        // Check if one the textFields are empty
+        guard let checkIfAppNameTextFieldIsEmpty = appNameTextField.text, let checkIfAccessKeyTextFieldIsEmpty = accessKeyTextField.text, !checkIfAppNameTextFieldIsEmpty.isEmpty && !checkIfAccessKeyTextFieldIsEmpty.isEmpty else {
+            return self.present(alertLogin, animated: true, completion: nil)
+        }
         // Saving in UserDefault App information
         UserDefaults.standard.set(appNameTextField.text, forKey: "appName")
         UserDefaults.standard.set(accessKeyTextField.text, forKey: "accessKey")
         UserDefaults.standard.set(true, forKey: "status")
         
         Switcher.updateRootVC()
-        
+    
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
+        
+        alertLogin.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
      
     }
 }
