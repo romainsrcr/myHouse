@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     
     @IBOutlet weak var channelNumberTextField: UITextField!
@@ -25,6 +25,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         pickerData = ["Int", "Float", "String"]
 
     }
@@ -52,6 +53,13 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
             Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
         }
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet.decimalDigits
+        let characterSet = CharacterSet(charactersIn: string)
+        return allowedCharacters.isSuperset(of: characterSet)
+    }
+    
     /*
     // MARK: - Navigation
 
