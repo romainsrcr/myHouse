@@ -933,7 +933,7 @@
                                 </constraints>
                                 <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sib-p3-X1k">
                                 <rect key="frame" x="71" y="433" width="272" height="30"/>
@@ -959,7 +959,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="modifyChannel:" destination="mHR-bc-0tx" eventType="touchUpInside" id="WOr-rN-eiW"/>
+                                    <segue destination="vLi-MS-Vj7" kind="unwind" identifier="modifyChannel" unwindAction="unwindToChannelViewControllerWithSegue:" id="qW6-Do-j5X"/>
                                 </connections>
                             </button>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOg-DW-LHM">

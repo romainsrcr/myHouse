@@ -9,7 +9,7 @@
 import UIKit
 
 class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
     var channel : Channel?
     
     var pickerData: [String] = []
@@ -27,15 +27,34 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     @IBOutlet weak var typeOfUplink: UIPickerView!
 
 
-    @IBAction func modifyChannel(_ sender: UIButton) {
-        //Remove the old channel
+  /*      //Remove the old channel
         Application.myChannels.removeValue(forKey: channel!.numberChannel)
         
         //Creating a new channel
         let key: Int? = Int(numberChannelTextField.text!)
         Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
         
+    */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       
+        switch segue.identifier {
+        case "modifyChannel":
+            //Remove the old channel
+            Application.myChannels.removeValue(forKey: channel!.numberChannel)
+            
+            //Creating a new channel
+            let key: Int? = Int(numberChannelTextField.text!)
+            Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+            
+        case "deleteChannel":
+            Application.myChannels.removeValue(forKey: channel!.numberChannel)
+        
+        default:
+            break
+        }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,12 +85,7 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         type = pickerData[row]
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "deleteChannel" {
-            Application.myChannels.removeValue(forKey: channel!.numberChannel)
-        }
-    }
+}
 
     /*
     // MARK: - Navigation
@@ -83,4 +97,3 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     }
     */
 
-}
