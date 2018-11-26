@@ -10,6 +10,7 @@ import UIKit
 
 class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
+    let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
     
     @IBOutlet weak var channelNumberTextField: UITextField!
     
@@ -27,9 +28,10 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         pickerData = ["Int", "Float", "String"]
-
+        
+        alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
     }
-    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -49,9 +51,34 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "saveAdvancedMode" {
-            let channel: Int? = Int(channelNumberTextField.text!)
-            Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+            shouldPerformSegue(withIdentifier: "saveAdvancedMode", sender: nil)
         }
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "saveAdvancedMode" {
+            if checkEmptyFiedl() == false {
+                self.present(alertFieldEmpty, animated: true, completion: nil)
+                return false
+            }
+        }
+        return true
+    }
+    
+    func checkEmptyFiedl() -> Bool {
+        // Check if one the textFields are empties
+        guard let checkIfChannelNumberTextFieldIsEmpty = channelNumberTextField.text,
+            let checkIfTypeOfDataTextFieldIsEmpty = typeOfDataTextField.text,
+            let checkIfUnitTextFieldIsEmpty = unitTextField.text,
+            !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
+        else {
+            // If one of them is empty
+            return false
+        }
+        // Add the channel
+        let channel: Int? = Int(channelNumberTextField.text!)
+        Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

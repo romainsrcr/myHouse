@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-        // Check if one the textFields are empty
+        // Check if one the textFields are empties
         guard let checkIfAppNameTextFieldIsEmpty = appNameTextField.text, let checkIfAccessKeyTextFieldIsEmpty = accessKeyTextField.text, !checkIfAppNameTextFieldIsEmpty.isEmpty && !checkIfAccessKeyTextFieldIsEmpty.isEmpty else {
             return self.present(alertLogIn, animated: true, completion: nil)
         }
