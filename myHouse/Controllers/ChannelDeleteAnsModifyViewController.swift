@@ -39,6 +39,7 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         
         pickerData = ["Int","Float", "String"]
         

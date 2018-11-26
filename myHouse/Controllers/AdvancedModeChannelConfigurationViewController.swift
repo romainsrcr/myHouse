@@ -25,7 +25,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.hideKeyboardWhenTappedAround()
         pickerData = ["Int", "Float", "String"]
 
     }
