@@ -47,13 +47,14 @@ class Device: NSObject, MKAnnotation {
                         for (key, value) in packet {
                             if (key != "device_id" && key != "raw" && key != "time"){
                                 //Value management
-                                if self.datas[key] == nil {
-                                    self.datas[key] = [:]
-                                    self.datas[key]!["data"] = []
-                                    self.datas[key]!["date"] = []
-                                }
                                 if(value != JSON.null)
                                 {
+                                    if self.datas[key] == nil {
+                                        self.datas[key] = [:]
+                                        self.datas[key]!["data"] = []
+                                        self.datas[key]!["date"] = []
+                                    }
+                                    
                                     self.datas[key]!["data"]!.append(value.doubleValue)
                                     
                                     // Date management
