@@ -81,7 +81,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "showModifyAndDeleteChannelSegue" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let destination = segue.destination as! ChannelDeleteAnsModifyViewController
+                let destination = segue.destination as! DeleteAndModifyViewController
                 let i = Array(Application.myChannels.keys)[indexPath.row]
                 destination.channel = Application.myChannels[i]
             }
