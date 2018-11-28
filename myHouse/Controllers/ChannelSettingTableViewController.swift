@@ -83,7 +83,6 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! ChannelDeleteAnsModifyViewController
                 let i = Array(Application.myChannels.keys)[indexPath.row]
-                print(i)
                 destination.channel = Application.myChannels[i]
             }
         }

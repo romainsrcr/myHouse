@@ -78,9 +78,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+        return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
     
     /*
