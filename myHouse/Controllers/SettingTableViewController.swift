@@ -27,7 +27,7 @@ class SettingTableViewController: UITableViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            appNameInSetting.text = Application.getName().replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
+            appNameInSetting.text = Application.name.replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
             
             
             // Uncomment the following line to preserve selection between presentations

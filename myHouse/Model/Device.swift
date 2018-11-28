@@ -35,8 +35,8 @@ class Device: NSObject, MKAnnotation {
     
     func getData(success: @escaping () -> Void) {
         
-        let url = "https://\(Application.getName()).data.thethingsnetwork.org/api/v2/query/\(self.name!)"
-        let headers = ["Authorization": "key \(Application.getAccessKey())"]
+        let url = "https://\(Application.name).data.thethingsnetwork.org/api/v2/query/\(self.name!)"
+        let headers = ["Authorization": "key \(Application.accessKey)"]
         
         Alamofire.request(url, headers:headers).responseJSON { response in
             if (response.result.isSuccess) {
@@ -78,8 +78,8 @@ class Device: NSObject, MKAnnotation {
     
     func getInfo(success: @escaping () -> Void) {
         
-        let url = "http://eu.thethings.network:8084/applications/\(Application.getName())/devices/\(self.name!)"
-        let headers = ["Authorization": "key \(Application.getAccessKey())"]
+        let url = "http://eu.thethings.network:8084/applications/\(Application.name)/devices/\(self.name!)"
+        let headers = ["Authorization": "key \(Application.accessKey)"]
         
         Alamofire.request(url, headers:headers).responseJSON { response in
             if (response.result.isSuccess) {
