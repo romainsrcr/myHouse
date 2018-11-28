@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var channel : Channel?
     

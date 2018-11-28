@@ -893,10 +893,10 @@
             </objects>
             <point key="canvasLocation" x="2722" y="1351"/>
         </scene>
-        <!--Channel Delete Ans Modify View Controller-->
+        <!--Delete And Modify View Controller-->
         <scene sceneID="fEc-hB-wTp">
             <objects>
-                <viewController id="mHR-bc-0tx" customClass="ChannelDeleteAnsModifyViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mHR-bc-0tx" customClass="DeleteAndModifyViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cab-Pd-j2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
