@@ -49,11 +49,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         type = pickerData[row]
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "saveAdvancedMode" {
-            shouldPerformSegue(withIdentifier: "saveAdvancedMode", sender: nil)
-        }
-    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {}
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "saveAdvancedMode" {
@@ -72,7 +68,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
             let checkIfUnitTextFieldIsEmpty = unitTextField.text,
             !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
         else {
-            // If one of them is empty
+            // If one of them are empties
             return false
         }
         // Add the channel

@@ -21,7 +21,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
-        if checkAdvancedMode() == true {
+        if Application.advancedMode == true {
             self.performSegue(withIdentifier: "AdvancedModeAddingChannel", sender: nil)
         } else {
             self.performSegue(withIdentifier: "NormalModeAddInformation", sender: nil)
@@ -34,17 +34,18 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
+        if Application.advancedMode == true {
+            textSettingComment.text = "You have to complete all informations about the channel that you're using"
+        } else {
+            textSettingComment.text = "You just have to complete the type of data and the unit"
+        }
         reloadView()
-        
     }
     
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if checkAdvancedMode() == true  && Application.myChannels.count != 0{
+        if Application.advancedMode == true  && Application.myChannels.count != 0{
             return 2
         } else {
             return 1
@@ -71,7 +72,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             
             let keyOfmyChannelDictionary = Application.myChannels.keys
             let intArrayToIterate = Array(keyOfmyChannelDictionary.map { Int($0) })
-            cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row])"
+            cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row]) | indexPath \(indexPath.row)"
             
         }
         return cell
@@ -82,12 +83,15 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             if let indexPath = tableView.indexPathForSelectedRow {
                 let destination = segue.destination as! ChannelDeleteAnsModifyViewController
                 let i = Array(Application.myChannels.keys)[indexPath.row]
+                print(i)
                 destination.channel = Application.myChannels[i]
             }
         }
     }
     
-    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {}
+    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {
+        reloadView()
+    }
     
     /*
     // Override to support conditional editing of the table view.

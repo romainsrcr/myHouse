@@ -8,14 +8,6 @@
 
 import Foundation
 
-func checkAdvancedMode() -> Bool {
-    if (Application.advancedMode == false) {
-        return false
-    } else {
-        return true
-    }
-}
-
 func updateMode(mode : Bool) -> String {
     Application.advancedMode = mode
     return mode == false ? "You just have to complete the type of data and the unit" : "You have to complete all informations about the channel that you're using"
