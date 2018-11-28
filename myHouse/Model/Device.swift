@@ -35,32 +35,34 @@ class Device: NSObject, MKAnnotation {
     
     func getData(success: @escaping () -> Void) {
         
-        let url = "https://\(Application.getName()).data.thethingsnetwork.org/api/v2/query/\(self.name!)"
-        let headers = ["Authorization": "key \(Application.getAccessKey())"]
+        let url = "https://\(Application.name).data.thethingsnetwork.org/api/v2/query/\(self.name!)"
+        let headers = ["Authorization": "key \(Application.accessKey)"]
         
         Alamofire.request(url, headers:headers).responseJSON { response in
             if (response.result.isSuccess) {
                 if let result = response.result.value {
                     let resultJSON = JSON(result)
+                    self.datas = [:]
                     for packet in resultJSON.arrayValue {
                         for (key, value) in packet {
-                            
                             if (key != "device_id" && key != "raw" && key != "time"){
-                                
                                 //Value management
                                 if self.datas[key] == nil {
                                     self.datas[key] = [:]
                                     self.datas[key]!["data"] = []
                                     self.datas[key]!["date"] = []
                                 }
-                                self.datas[key]!["data"]!.append(value.doubleValue)
-                                
-                                // Date management
-                                let dateFormatter = DateFormatter()
-                                dateFormatter.locale = Locale(identifier: "en_US")
-                                dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH:mm:ss.SSSS'Z'"
-                                let date = dateFormatter.date(from: packet["time"].stringValue)
-                                self.datas[key]!["date"]!.append(date!)
+                                if(value != JSON.null)
+                                {
+                                    self.datas[key]!["data"]!.append(value.doubleValue)
+                                    
+                                    // Date management
+                                    let dateFormatter = DateFormatter()
+                                    dateFormatter.locale = Locale(identifier: "en_US")
+                                    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH:mm:ss.SSSS'Z'"
+                                    let date = dateFormatter.date(from: packet["time"].stringValue)
+                                    self.datas[key]!["date"]!.append(date!)
+                                }
                             }
                         }
                     }
@@ -76,8 +78,8 @@ class Device: NSObject, MKAnnotation {
     
     func getInfo(success: @escaping () -> Void) {
         
-        let url = "http://eu.thethings.network:8084/applications/\(Application.getName())/devices/\(self.name!)"
-        let headers = ["Authorization": "key \(Application.getAccessKey())"]
+        let url = "http://eu.thethings.network:8084/applications/\(Application.name)/devices/\(self.name!)"
+        let headers = ["Authorization": "key \(Application.accessKey)"]
         
         Alamofire.request(url, headers:headers).responseJSON { response in
             if (response.result.isSuccess) {
