@@ -62,7 +62,7 @@ class Application: NSObject{
         }
     }
     
-    static func getMode(success: @escaping () -> Void) {
+    static func getAdvancedMode(success: @escaping () -> Void) {
         let url = "http://eu.thethings.network:8084/applications/\(name)"
         let headers = ["Authorization": "Key \(accessKey)"]
         
@@ -87,6 +87,24 @@ class Application: NSObject{
                 success()
             }
         }
+    }
+    
+    static func updateChannels(success: @escaping () -> Void, failure: @escaping () -> Void) {
+        let url = "http://eu.thethings.network:8084/applications/\(name)"
+        let headers = ["Authorization": "Key \(accessKey)"]
+        let data = ["decoder" : "Coucou"]
+        
+        Alamofire.request(url, method: .post, parameters: data, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
+            if (response.result.isSuccess) {
+                success()
+            }
+            else {
+                failure()
+            }
+        }
+    }
+    
+    static func setAdvancedMode(success: @escaping () -> Void, advanced: Bool){
         
     }
 }
