@@ -65,7 +65,6 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(Application.devices[section].datas)
         return Application.devices[section].datas.count
     }
     
