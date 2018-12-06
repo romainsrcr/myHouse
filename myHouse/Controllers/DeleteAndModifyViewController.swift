@@ -10,7 +10,7 @@ import UIKit
 
 class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    var channel : Channel?
+    var channel : ChannelCD?
     
     var pickerData: [String] = []
     
@@ -41,9 +41,9 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
         
         channelNumberLabel.text = ("Channel \(channel!.numberChannel)")
         numberChannelTextField.text = String(channel!.numberChannel)
-        typeOfDataTextField.text = channel!.typeOfData
-        unitTextField.text = channel!.unit
-        typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink)!, inComponent:0, animated:true)
+        //typeOfDataTextField.text = channel!.typeOfData
+        //unitTextField.text = channel!.unit
+        typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink!)!, inComponent:0, animated:true)
         
         // Alert configuration
         alertNumberChannelAlreadyUse.addTextField(configurationHandler: { textField in
@@ -64,7 +64,7 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "deleteChannel" {
-            Application.myChannels.removeValue(forKey: channel!.numberChannel)
+            Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
         }
     }
     
@@ -88,7 +88,7 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
             if Application.myChannels.keys.contains(key!) == false {
             
                 //Remove the old channel
-                Application.myChannels.removeValue(forKey: channel!.numberChannel)
+                Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
             
                 //Check if the number channel is already use
                 Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
