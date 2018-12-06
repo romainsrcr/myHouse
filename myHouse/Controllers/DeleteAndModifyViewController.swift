@@ -69,7 +69,9 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
             let context = AppDelegate.viewContext
             
             let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
-            deleteFetch.predicate = NSPredicate(format: "numberChannel = %@", channel!.numberChannel)
+            
+            deleteFetch.predicate = NSPredicate(format: "numberChannel == %d", channel!.numberChannel)
+            
             let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
             
             do {
