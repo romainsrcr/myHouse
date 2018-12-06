@@ -25,7 +25,6 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         if Application.advancedMode == true {
             self.performSegue(withIdentifier: "AdvancedModeAddingChannel", sender: nil)
-            
         } else {
             self.performSegue(withIdentifier: "NormalModeAddInformation", sender: nil)
         }
@@ -50,16 +49,18 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if Application.advancedMode == true {
-            return 2
-        } else {
-            return 1
-        }
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 1) {
-            let channelFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+            var channelFetch : NSFetchRequest<NSFetchRequestResult>
+            if Application.advancedMode == true {
+                channelFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+            } else {
+                channelFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "TypeOfDataCD")
+            }
+            
             let context = AppDelegate.viewContext
             do {
                 let count = try context.count(for: channelFetch)
@@ -80,12 +81,38 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             cell.textLabel?.text = "Advanced Mode"
             firstCell = cell
         } else {
-            cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
-            cell.textLabel?.text = "Channel \(ChannelCD.all[indexPath.row].numberChannel)"
-            
+            if Application.advancedMode == true {
+                cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
+                cell.textLabel?.text = "Channel \(ChannelCD.all[indexPath.row].numberChannel)"
+            } else {
+                cell = tableView.dequeueReusableCell(withIdentifier: "typeOfDataCell", for: indexPath)
+                cell.textLabel?.text = "Type \(TypeOfDataCD.all[indexPath.row].name!)"
+            }
         }
         return cell
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case "showModifyChannelSegue":
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! DeleteAndModifyChannelViewController
+                destination.channel = ChannelCD.all[indexPath.row]
+            }
+        case "showModifyTypeOfDataSegue":
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destination = segue.destination as! DeleteAndModifyTypeOfDataViewController
+                destination.typeofdata = TypeOfDataCD.all[indexPath.row]
+            }
+        default:
+            break
+        }
+    }
+    
+    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {
+        reloadView()
+    }
+    
     
     func deleteAllRecords(classToDelete : String) {
         let context = AppDelegate.viewContext
@@ -99,19 +126,6 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         } catch let error as NSError{
             print("Error: \(error.localizedDescription)")
         }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showModifyAndDeleteChannelSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let destination = segue.destination as! DeleteAndModifyViewController
-                destination.channel = ChannelCD.all[indexPath.row]
-            }
-        }
-    }
-    
-    @IBAction func unwindToChannelViewController(segue:UIStoryboardSegue) {
-        reloadView()
     }
     
     /*

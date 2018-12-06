@@ -13,6 +13,8 @@ class NormalModeConfigurationViewController: UIViewController {
     
     
     let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
+    
+    let alertFieldtypeOfDataUsed = UIAlertController(title: "Type of data already used", message: "Please change the type of data name", preferredStyle: .alert)
 
     @IBOutlet weak var typeOfDataTextField: UITextField!
     @IBOutlet weak var unitTextField: UITextField!
@@ -22,6 +24,8 @@ class NormalModeConfigurationViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        alertFieldtypeOfDataUsed.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
     }
     
@@ -46,10 +50,21 @@ class NormalModeConfigurationViewController: UIViewController {
                 // If one of them are empties
                 return false
         }
+        // Add the channel
+        let nameTypeOfData: String? = typeOfDataTextField.text
         
-        saveTypeOfDataInCoreData(name : typeOfDataTextField.text!, unit : unitTextField.text!)
+        // Verify if the channel already exist
+        let context = AppDelegate.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "TypeOfDataCD")
+        fetch.predicate = NSPredicate(format: "name == %@", nameTypeOfData!)
         
-        return true
+        if try! !context.fetch(fetch).isEmpty {
+            self.present(alertFieldtypeOfDataUsed, animated: true, completion: nil)
+            return false
+        } else {
+            saveTypeOfDataInCoreData(name : typeOfDataTextField.text!, unit : unitTextField.text!)
+            return true
+        }
     }
     
     private func saveTypeOfDataInCoreData(name : String, unit : String) {

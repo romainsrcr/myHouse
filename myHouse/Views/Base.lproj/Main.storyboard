@@ -665,7 +665,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="PUs-on-8L8">
-                                    <rect key="frame" x="0.0" y="161.5" width="414" height="61"/>
+                                    <rect key="frame" x="0.0" y="205.5" width="414" height="61"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="388" translatesAutoresizingMaskIntoConstraints="NO" id="bl6-iH-BdK">
@@ -710,7 +710,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="mHR-bc-0tx" kind="presentation" identifier="showModifyAndDeleteChannelSegue" id="Oaq-hD-zmK"/>
+                                            <segue destination="mHR-bc-0tx" kind="presentation" identifier="showModifyChannelSegue" id="Oaq-hD-zmK"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="typeOfDataCell" id="HU1-he-Aud">
+                                        <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HU1-he-Aud" id="LLz-Rk-GP3">
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="o2X-o6-z6e" kind="presentation" identifier="showModifyTypeOfDataSegue" id="2kQ-eW-Ny7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -831,7 +842,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9T2-8J-Vwe" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Dt0-fv-aog" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2722" y="670"/>
+            <point key="canvasLocation" x="2996" y="640"/>
         </scene>
         <!--Normal Mode Configuration View Controller-->
         <scene sceneID="bqe-4u-GfJ">
@@ -899,12 +910,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CF-s6-Blk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kGo-rF-w6O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2722" y="1351"/>
+            <point key="canvasLocation" x="2997" y="1354"/>
         </scene>
-        <!--Delete And Modify View Controller-->
+        <!--Delete And Modify Channel View Controller-->
         <scene sceneID="fEc-hB-wTp">
             <objects>
-                <viewController id="mHR-bc-0tx" customClass="DeleteAndModifyViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mHR-bc-0tx" customClass="DeleteAndModifyChannelViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cab-Pd-j2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1042,7 +1053,101 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHG-j0-z08" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vLi-MS-Vj7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1883" y="1599"/>
+            <point key="canvasLocation" x="1280" y="1564"/>
+        </scene>
+        <!--Delete And Modify Type Of Data View Controller-->
+        <scene sceneID="yqw-Ru-s8E">
+            <objects>
+                <viewController id="o2X-o6-z6e" customClass="DeleteAndModifyTypeOfDataViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MlY-Wf-0QB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kP3-wc-QTg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Modify type of data" id="jMa-sm-LP2">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zRn-3n-ATA">
+                                            <connections>
+                                                <segue destination="Y3O-Qi-3UN" kind="unwind" identifier="cancelModifyTypeOfData" unwindAction="unwindToChannelViewControllerWithSegue:" id="fEd-MB-AA1"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="DTK-iH-5is">
+                                            <connections>
+                                                <segue destination="Y3O-Qi-3UN" kind="unwind" identifier="deleteModifyTypeOfData" unwindAction="unwindToChannelViewControllerWithSegue:" id="gJC-vs-zX8"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzT-d6-vVa">
+                                <rect key="frame" x="71" y="546" width="272" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="ISL-GY-QwY"/>
+                                </constraints>
+                                <state key="normal" title="Modify">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="Y3O-Qi-3UN" kind="unwind" identifier="modifyTypeOfData" unwindAction="unwindToChannelViewControllerWithSegue:" id="5st-lQ-wCG"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type of data" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i2x-20-7fz">
+                                <rect key="frame" x="71" y="320" width="272" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="QLv-yh-Bfo"/>
+                                </constraints>
+                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8TR-Tb-oRy">
+                                <rect key="frame" x="71" y="433" width="272" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="272" id="eLO-Vh-Kay"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZzT-d6-vVa" firstAttribute="top" secondItem="8TR-Tb-oRy" secondAttribute="bottom" constant="83" id="0Qe-uK-BzB"/>
+                            <constraint firstItem="zGz-Nd-9TZ" firstAttribute="trailing" secondItem="ZzT-d6-vVa" secondAttribute="trailing" constant="71" id="DPc-hX-SeH"/>
+                            <constraint firstItem="zGz-Nd-9TZ" firstAttribute="trailing" secondItem="8TR-Tb-oRy" secondAttribute="trailing" constant="71" id="Drw-oZ-3Nk"/>
+                            <constraint firstItem="ZzT-d6-vVa" firstAttribute="centerX" secondItem="zGz-Nd-9TZ" secondAttribute="centerX" id="Hqv-lQ-KXO"/>
+                            <constraint firstItem="i2x-20-7fz" firstAttribute="top" secondItem="kP3-wc-QTg" secondAttribute="bottom" constant="232" id="IUB-d2-TSD"/>
+                            <constraint firstItem="zGz-Nd-9TZ" firstAttribute="trailing" secondItem="i2x-20-7fz" secondAttribute="trailing" constant="71" id="KOb-H0-uWa"/>
+                            <constraint firstItem="8TR-Tb-oRy" firstAttribute="top" secondItem="i2x-20-7fz" secondAttribute="bottom" constant="83" id="Kw4-ce-uXJ"/>
+                            <constraint firstItem="8TR-Tb-oRy" firstAttribute="centerX" secondItem="zGz-Nd-9TZ" secondAttribute="centerX" id="NUu-pb-Uc0"/>
+                            <constraint firstItem="i2x-20-7fz" firstAttribute="centerX" secondItem="zGz-Nd-9TZ" secondAttribute="centerX" id="SdO-0s-VnV"/>
+                            <constraint firstItem="kP3-wc-QTg" firstAttribute="leading" secondItem="MlY-Wf-0QB" secondAttribute="leading" id="Tv8-pm-B2i"/>
+                            <constraint firstItem="8TR-Tb-oRy" firstAttribute="leading" secondItem="zGz-Nd-9TZ" secondAttribute="leading" constant="71" id="Ujp-mc-Mwe"/>
+                            <constraint firstItem="kP3-wc-QTg" firstAttribute="centerX" secondItem="i2x-20-7fz" secondAttribute="centerX" id="bCl-h1-KAg"/>
+                            <constraint firstItem="ZzT-d6-vVa" firstAttribute="top" secondItem="8TR-Tb-oRy" secondAttribute="bottom" constant="83" id="bNV-RY-kzg"/>
+                            <constraint firstItem="8TR-Tb-oRy" firstAttribute="top" secondItem="i2x-20-7fz" secondAttribute="bottom" constant="83" id="bSP-73-zD8"/>
+                            <constraint firstItem="ZzT-d6-vVa" firstAttribute="leading" secondItem="zGz-Nd-9TZ" secondAttribute="leading" constant="71" id="lN7-y4-r6o"/>
+                            <constraint firstItem="zGz-Nd-9TZ" firstAttribute="bottom" secondItem="ZzT-d6-vVa" secondAttribute="bottom" constant="286" id="oa3-Aw-ywn"/>
+                            <constraint firstItem="i2x-20-7fz" firstAttribute="leading" secondItem="zGz-Nd-9TZ" secondAttribute="leading" constant="71" id="sAO-uS-8zH"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zGz-Nd-9TZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="typeOfDataTextField" destination="i2x-20-7fz" id="PH9-qj-n9d"/>
+                        <outlet property="unitTextField" destination="8TR-Tb-oRy" id="36o-7a-LxE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tz4-Iw-0LU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Y3O-Qi-3UN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2091" y="1564"/>
         </scene>
         <!--Item-->
         <scene sceneID="Rqy-Uw-LmD">

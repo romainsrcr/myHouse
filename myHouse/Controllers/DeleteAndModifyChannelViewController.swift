@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DeleteAndModifyChannelViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     var channel : ChannelCD?
     
@@ -22,15 +22,10 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
     let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
     
     @IBOutlet weak var channelNumberLabel: UILabel!
-    
     @IBOutlet weak var numberChannelTextField: UITextField!
-    
     @IBOutlet weak var typeOfDataTextField: UITextField!
-    
     @IBOutlet weak var unitTextField: UITextField!
-    
     @IBOutlet weak var typeOfUplink: UIPickerView!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

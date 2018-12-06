@@ -16,13 +16,14 @@
 		177C0BAA21B880BA008D8607 /* ChannelModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BA821B880BA008D8607 /* ChannelModel.xcdatamodeld */; };
 		177C0BAC21B8818A008D8607 /* ChannelCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BAB21B8818A008D8607 /* ChannelCD.swift */; };
 		177C0BAE21B8A07E008D8607 /* TypeOfDataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */; };
+		177C0BB521B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BB421B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift */; };
 		1795CA0921A822740001FEF8 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */; };
 		1795CA1121AA1E4B0001FEF8 /* ToolFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */; };
 		1795CA1321AA2B930001FEF8 /* NormalModeConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */; };
 		17D4BCF8219A31B500792836 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4BCF7219A31B500792836 /* SettingTableViewController.swift */; };
 		17FD513E219F2C8C00E6E666 /* ChannelSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */; };
 		17FD514021A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513F21A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift */; };
-		17FD514221A614DB00E6E666 /* DeleteAndModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD514121A614DB00E6E666 /* DeleteAndModifyViewController.swift */; };
+		17FD514221A614DB00E6E666 /* DeleteAndModifyChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD514121A614DB00E6E666 /* DeleteAndModifyChannelViewController.swift */; };
 		D517FEE1BA3AB3151D27E8CA /* Pods_myHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */; };
 		DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */; };
 		DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */; };
@@ -49,13 +50,14 @@
 		177C0BA921B880BA008D8607 /* ChannelModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChannelModel.xcdatamodel; sourceTree = "<group>"; };
 		177C0BAB21B8818A008D8607 /* ChannelCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCD.swift; sourceTree = "<group>"; };
 		177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfDataCD.swift; sourceTree = "<group>"; };
+		177C0BB421B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteAndModifyTypeOfDataViewController.swift; path = myHouse/Controllers/DeleteAndModifyTypeOfDataViewController.swift; sourceTree = SOURCE_ROOT; };
 		1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolFunctions.swift; path = myHouse/Tools/ToolFunctions.swift; sourceTree = SOURCE_ROOT; };
 		1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalModeConfigurationViewController.swift; sourceTree = "<group>"; };
 		17D4BCF7219A31B500792836 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelSettingTableViewController.swift; path = myHouse/Controllers/ChannelSettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		17FD513F21A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedModeChannelConfigurationViewController.swift; path = myHouse/Controllers/AdvancedModeChannelConfigurationViewController.swift; sourceTree = SOURCE_ROOT; };
-		17FD514121A614DB00E6E666 /* DeleteAndModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteAndModifyViewController.swift; path = myHouse/Controllers/DeleteAndModifyViewController.swift; sourceTree = SOURCE_ROOT; };
+		17FD514121A614DB00E6E666 /* DeleteAndModifyChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteAndModifyChannelViewController.swift; path = myHouse/Controllers/DeleteAndModifyChannelViewController.swift; sourceTree = SOURCE_ROOT; };
 		3E7578DD35477F8B271C5666 /* Pods-myHouse.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHouse.debug.xcconfig"; path = "Pods/Target Support Files/Pods-myHouse/Pods-myHouse.debug.xcconfig"; sourceTree = "<group>"; };
 		6F41E34DC36E4E3E6BDBC2D6 /* Pods_myHouse.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myHouse.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71441577A155FF855541DCA /* Pods-myHouse.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myHouse.release.xcconfig"; path = "Pods/Target Support Files/Pods-myHouse/Pods-myHouse.release.xcconfig"; sourceTree = "<group>"; };
@@ -168,17 +170,18 @@
 			children = (
 				172D05072198481100B4A22F /* LoginViewController.swift */,
 				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */,
+				ED0D1E18219EE98300C1312D /* DevicesListSettingTableViewController.swift */,
+				ED065F24219F4A79003879A6 /* DeviceSettingsTableViewController.swift */,
 				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
 				1765F4922181B75A00AF306E /* MapViewController.swift */,
 				17D4BCF7219A31B500792836 /* SettingTableViewController.swift */,
 				ED5D42D621998F0E0026D73E /* DeviceDetailsViewController.swift */,
-				17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */,
 				1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */,
-				17FD514121A614DB00E6E666 /* DeleteAndModifyViewController.swift */,
+				17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */,
+				17FD514121A614DB00E6E666 /* DeleteAndModifyChannelViewController.swift */,
 				17FD513F21A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift */,
 				1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */,
-				ED0D1E18219EE98300C1312D /* DevicesListSettingTableViewController.swift */,
-				ED065F24219F4A79003879A6 /* DeviceSettingsTableViewController.swift */,
+				177C0BB421B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -316,7 +319,7 @@
 				17FD514021A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift in Sources */,
 				ED4BF1F6219DC5C400EF6FF8 /* DateValueFormatter.swift in Sources */,
 				172D050A21984EE100B4A22F /* Switcher.swift in Sources */,
-				17FD514221A614DB00E6E666 /* DeleteAndModifyViewController.swift in Sources */,
+				17FD514221A614DB00E6E666 /* DeleteAndModifyChannelViewController.swift in Sources */,
 				17D4BCF8219A31B500792836 /* SettingTableViewController.swift in Sources */,
 				172D05082198481100B4A22F /* LoginViewController.swift in Sources */,
 				DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */,
@@ -329,6 +332,7 @@
 				DA83DBCC2196D46400B8CCF9 /* DeviceCollectionViewController.swift in Sources */,
 				ED08BD71219C775400D3A18A /* Extensions.swift in Sources */,
 				ED5D42D721998F0E0026D73E /* DeviceDetailsViewController.swift in Sources */,
+				177C0BB521B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift in Sources */,
 				1795CA1121AA1E4B0001FEF8 /* ToolFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,4 +11,12 @@ import CoreData
 
 class TypeOfDataCD: NSManagedObject {
     
+    static var all: [TypeOfDataCD] {
+        
+        let request: NSFetchRequest<TypeOfDataCD> = TypeOfDataCD.fetchRequest()
+        guard let typeOfDatas = try? AppDelegate.viewContext.fetch(request) else {
+            return []
+        }
+        return typeOfDatas
+    }
 }

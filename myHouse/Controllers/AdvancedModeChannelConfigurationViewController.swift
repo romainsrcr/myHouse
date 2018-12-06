@@ -12,7 +12,7 @@ import CoreData
 class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let alertFieldEmpty = UIAlertController(title: "Empty text field(s)", message: "Please fill the missing field(s)", preferredStyle: .alert)
-    let alertFieldChannelUse = UIAlertController(title: "Channel already used", message: "Please change the channel number", preferredStyle: .alert)
+    let alertFieldChannelUsed = UIAlertController(title: "Channel already used", message: "Please change the channel number", preferredStyle: .alert)
     
     @IBOutlet weak var channelNumberTextField: UITextField!
     
@@ -33,7 +33,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        alertFieldChannelUse.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertFieldChannelUsed.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -83,7 +83,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         fetch.predicate = NSPredicate(format: "numberChannel == %d", channel!)
         
         if try! !context.fetch(fetch).isEmpty {
-            self.present(alertFieldChannelUse, animated: true, completion: nil)
+            self.present(alertFieldChannelUsed, animated: true, completion: nil)
             return false
         } else {
             saveChannelInCoreData(numberChannel: channel!, name : typeOfDataTextField.text!, unit : unitTextField.text!, typeOfUplink: type)
