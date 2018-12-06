@@ -11,6 +11,7 @@ import UIKit
 class DeviceCellViewController: UICollectionViewCell {
     var device: Device?
     var sensor: String?
+    var unit: String?
     var valueString: String?
     
     @IBOutlet weak var Value: UILabel!
@@ -20,6 +21,12 @@ class DeviceCellViewController: UICollectionViewCell {
         super.layoutSubviews()
         Name.text = device!.title!
         valueString = (device!.datas[sensor!]!["data"]!.last! as! Double).clean
-        Value.text = (valueString!)
+        
+        if Application.advancedMode == true {
+
+            unit = ChannelCD.getUnitFor(typeOfUplink: sensor!)
+        }
+        
+        Value.text = (valueString! + " " + unit!)
     }
 }
