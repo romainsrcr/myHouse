@@ -689,7 +689,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ooy-cF-7uF">
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooy-cF-7uF">
                                                     <rect key="frame" x="345" y="6" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <connections>
@@ -848,7 +848,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="c7A-yS-eia" id="0t9-Vf-aRH"/>
                                 </connections>
@@ -869,7 +869,11 @@
                                                 <segue destination="kGo-rF-w6O" kind="unwind" identifier="cancelNormalMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="Su3-9D-4D6"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yy0-Je-ipn"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yy0-Je-ipn">
+                                            <connections>
+                                                <segue destination="kGo-rF-w6O" kind="unwind" identifier="saveNormalMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="nqs-Jr-qBb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -887,16 +891,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QIF-C8-E6T"/>
                     </view>
+                    <connections>
+                        <outlet property="typeOfDataTextField" destination="VNy-bf-azq" id="MqL-h3-8VU"/>
+                        <outlet property="unitTextField" destination="ars-in-MiK" id="X9i-Hg-uXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CF-s6-Blk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kGo-rF-w6O" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2722" y="1351"/>
         </scene>
-        <!--Channel Delete Ans Modify View Controller-->
+        <!--Delete And Modify View Controller-->
         <scene sceneID="fEc-hB-wTp">
             <objects>
-                <viewController id="mHR-bc-0tx" customClass="ChannelDeleteAnsModifyViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mHR-bc-0tx" customClass="DeleteAndModifyViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cab-Pd-j2N">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

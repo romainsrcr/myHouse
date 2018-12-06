@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChannelCD" representedClassName=".ChannelCD" syncable="YES" codeGenerationType="category">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberChannel" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="typeOfUplink" attributeType="String" syncable="YES"/>
+        <attribute name="unit" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TypeOfDataCD" representedClassName=".TypeOfDataCD" syncable="YES" codeGenerationType="category">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="unit" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ChannelCD" positionX="-114.34375" positionY="7" width="128" height="103"/>
+        <element name="TypeOfDataCD" positionX="167.5234375" positionY="87.5" width="128" height="73"/>
+    </elements>
+</model>

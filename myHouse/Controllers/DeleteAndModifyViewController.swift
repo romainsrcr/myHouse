@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
-class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    var channel : Channel?
+    var channel : ChannelCD?
     
     var pickerData: [String] = []
     
@@ -19,9 +20,9 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     let alertNumberChannelAlreadyUse = UIAlertController(title: "This number of channel is already use of another type of data", message: nil, preferredStyle: .alert)
     
     let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
-
+    
     @IBOutlet weak var channelNumberLabel: UILabel!
-
+    
     @IBOutlet weak var numberChannelTextField: UITextField!
     
     @IBOutlet weak var typeOfDataTextField: UITextField!
@@ -41,9 +42,10 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
         
         channelNumberLabel.text = ("Channel \(channel!.numberChannel)")
         numberChannelTextField.text = String(channel!.numberChannel)
-        typeOfDataTextField.text = channel!.typeOfData
+        numberChannelTextField.isUserInteractionEnabled = false
+        typeOfDataTextField.text = channel!.name
         unitTextField.text = channel!.unit
-        typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink)!, inComponent:0, animated:true)
+        typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink!)!, inComponent:0, animated:true)
         
         // Alert configuration
         alertNumberChannelAlreadyUse.addTextField(configurationHandler: { textField in
@@ -55,8 +57,8 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
         
         alertNumberChannelAlreadyUse.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             if let numberChannelModified = self.alertNumberChannelAlreadyUse.textFields?.first?.text {
-                    self.channelNumberLabel.text = ("Channel \(numberChannelModified)")
-                    self.numberChannelTextField.text = numberChannelModified }
+                self.channelNumberLabel.text = ("Channel \(numberChannelModified)")
+                self.numberChannelTextField.text = numberChannelModified }
         }))
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -64,7 +66,21 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "deleteChannel" {
-            Application.myChannels.removeValue(forKey: channel!.numberChannel)
+            let context = AppDelegate.viewContext
+            
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+            
+            deleteFetch.predicate = NSPredicate(format: "numberChannel == %d", channel!.numberChannel)
+            
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+            } catch let error as NSError{
+                print("Error: \(error.localizedDescription)")
+            }
+            
         }
     }
     
@@ -84,23 +100,28 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     
     func updateChannel() -> Bool {
         let key: Int? = Int(numberChannelTextField.text!)
-        if key! != channel!.numberChannel {
-            if Application.myChannels.keys.contains(key!) == false {
+        
+        let context = AppDelegate.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+        fetch.predicate = NSPredicate(format: "numberChannel == %d", channel!.numberChannel)
+        
+        do {
+            let updateFetch = try context.fetch(fetch)
             
-                //Remove the old channel
-                Application.myChannels.removeValue(forKey: channel!.numberChannel)
-            
-                //Check if the number channel is already use
-                Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
-            
+            let channelUpdate = updateFetch[0] as! NSManagedObject
+            channelUpdate.setValue(key!, forKey: "numberChannel")
+            channelUpdate.setValue(typeOfDataTextField.text!, forKey: "name")
+            channelUpdate.setValue(unitTextField.text!, forKey: "unit")
+            channelUpdate.setValue(type, forKey: "typeOfUplink")
+            do {
+                try context.save()
                 return false
-            
-            } else {
-                
+            } catch let error as NSError{
+                print("Error: \(error.localizedDescription)")
                 return true
             }
-        } else {
-            Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        } catch let error as NSError{
+            print("Error: \(error.localizedDescription)")
             return false
         }
     }
@@ -114,7 +135,7 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
             else {
                 // If one of them are empties
                 return false
-            }
+        }
         return true
     }
     
@@ -138,14 +159,14 @@ class ChannelDeleteAnsModifyViewController: UIViewController, UIPickerViewDelega
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
