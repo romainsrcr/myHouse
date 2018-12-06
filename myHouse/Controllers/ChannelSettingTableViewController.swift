@@ -19,15 +19,14 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction func switchCustomMode(_ sender: UISwitch) {
         textSettingComment.text = updateMode(mode : sender.isOn)
+        reloadView()
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         if Application.advancedMode == true {
-            deleteAllRecords(classToDelete : "TypeOfDataCD")
             self.performSegue(withIdentifier: "AdvancedModeAddingChannel", sender: nil)
             
         } else {
-            deleteAllRecords(classToDelete : "ChannelCD")
             self.performSegue(withIdentifier: "NormalModeAddInformation", sender: nil)
         }
     }
@@ -38,11 +37,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // For test
-        deleteAllRecords(classToDelete : "ChannelCD")
-        deleteAllRecords(classToDelete : "TypeOfDataCD")
-        
+
         if Application.advancedMode == true {
             textSettingComment.text = "You have to complete all informations about the channel that you're using"
         } else {

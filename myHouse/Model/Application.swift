@@ -11,13 +11,6 @@ import Alamofire
 import SwiftyJSON
 import MapKit
 
-struct Channel {
-    var numberChannel : Int
-    var typeOfData : String
-    var unit : String
-    var typeOfUplink : String
-}
-
 class Application: NSObject{
     
     // Si tu veux avoir accès à App Name et AccesKey mis par user :
@@ -27,8 +20,7 @@ class Application: NSObject{
     // Properties of the application
     static var name = "project_iot_dtu"
     static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
-    static var advancedMode: Bool = false
-    static var myChannels : [Int : Channel] = [:]
+    static var advancedMode: Bool = true
     
     //Interresting information
     private(set) static var devices: [Device] = []
