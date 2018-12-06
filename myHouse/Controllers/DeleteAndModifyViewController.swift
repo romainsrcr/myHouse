@@ -20,9 +20,9 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
     let alertNumberChannelAlreadyUse = UIAlertController(title: "This number of channel is already use of another type of data", message: nil, preferredStyle: .alert)
     
     let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
-
+    
     @IBOutlet weak var channelNumberLabel: UILabel!
-
+    
     @IBOutlet weak var numberChannelTextField: UITextField!
     
     @IBOutlet weak var typeOfDataTextField: UITextField!
@@ -56,8 +56,8 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
         
         alertNumberChannelAlreadyUse.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             if let numberChannelModified = self.alertNumberChannelAlreadyUse.textFields?.first?.text {
-                    self.channelNumberLabel.text = ("Channel \(numberChannelModified)")
-                    self.numberChannelTextField.text = numberChannelModified }
+                self.channelNumberLabel.text = ("Channel \(numberChannelModified)")
+                self.numberChannelTextField.text = numberChannelModified }
         }))
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -100,68 +100,107 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
     
     func updateChannel() -> Bool {
         let key: Int? = Int(numberChannelTextField.text!)
-        if key! != channel!.numberChannel {
-            if Application.myChannels.keys.contains(key!) == false {
-            
-                //Remove the old channel
-                Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
-            
-                //Check if the number channel is already use
-                Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
-            
-                return false
-            
-            } else {
-                
-                return true
-            }
-        } else {
-            Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        
+        let context = AppDelegate.viewContext
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+        fetch.predicate = NSPredicate(format: "numberChannel == %d", key!)
+        do {
+            let testfetch = try context.fetch(fetch)
+            print("Ca existe")
+            return true
+        }
+        catch let error as NSError{
+            print("Ca existe pas")
             return false
         }
     }
-    
-    func checkEmptyFiedl() -> Bool {
-        // Check if one the textFields are empties
-        guard let checkIfChannelNumberTextFieldIsEmpty = numberChannelTextField.text,
-            let checkIfTypeOfDataTextFieldIsEmpty = typeOfDataTextField.text,
-            let checkIfUnitTextFieldIsEmpty = unitTextField.text,
-            !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
-            else {
-                // If one of them are empties
-                return false
+        
+      /*
+            fetch.predicate = NSPredicate(format: "numberChannel == %d", channel!.numberChannel)
+        do {
+            let updateFetch = try context.fetch(fetch)
+            
+            let channelUpdate = updateFetch[0] as! NSManagedObject
+            channelUpdate.setValue(key!, forKey: "numberChannel")
+            channelUpdate.setValue(typeOfDataTextField.text!, forKey: "name")
+            channelUpdate.setValue(unitTextField.text!, forKey: "unit")
+            channelUpdate.setValue(type, forKey: "typeOfUplink")
+            do {
+                try context.save()
+            } catch let error as NSError{
+                print("Error: \(error.localizedDescription)")
             }
-        return true
-    }
-    
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        type = pickerData[row]
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+        } catch let error as NSError{
+            print("Error: \(error.localizedDescription)")
+        }
+        */
+        
+        
+        
+        /*        if key! != channel!.numberChannel { // si textField.numberChannel différent de la numberchannel segue
+         if Application.myChannels.keys.contains(key!) == false {  // si textfield.numberchannel est contenue dans myChannel
+         
+         //Remove the old channel
+         Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
+         
+         //Check if the number channel is already use
+         Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+         
+         return false
+         
+         } else {
+         
+         return true
+         }
+         } else {
+         Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+         return false
+         }
+         }
+         */
+        
+        
+        func checkEmptyFiedl() -> Bool {
+            // Check if one the textFields are empties
+            guard let checkIfChannelNumberTextFieldIsEmpty = numberChannelTextField.text,
+                let checkIfTypeOfDataTextFieldIsEmpty = typeOfDataTextField.text,
+                let checkIfUnitTextFieldIsEmpty = unitTextField.text,
+                !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
+                else {
+                    // If one of them are empties
+                    return false
+            }
+            return true
+        }
+        
+        
+        func numberOfComponents(in pickerView: UIPickerView) -> Int {
+            return 1
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            return pickerData.count
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            return pickerData[row]
+        }
+        
+        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+            type = pickerData[row]
+        }
+        
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+        }
+        
+        /*
+         // MARK: - Navigation
+         
+         // In a storyboard-based application, you will often want to do a little preparation before navigation
+         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+         // Get the new view controller using segue.destination.
+         // Pass the selected object to the new view controller.
+         }
+         */
 }
