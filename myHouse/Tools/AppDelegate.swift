@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Switcher.updateRootVC()
         Application.getDevices(success: {})
+        Application.getAdvancedMode(success: {})
         return true
     }
 

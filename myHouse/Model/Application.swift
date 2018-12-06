@@ -32,7 +32,13 @@ class Application: NSObject{
     
     //Interresting information
     private(set) static var devices: [Device] = []
-    private static let decoder = ""
+    private static let decoder:String = {
+        var header = "function Decoder(bytes, port) {\n  \n  var decoded = {};\n\n  function bytesToFloat(bytes) {\n    bytes = bytes.slice(0, 4)\n    var bits = (bytes[0] << 24) | (bytes[1] << 16) | (bytes[2] << 8 )| (bytes[3] << 4 );\n    var sign = ((bits >>> 31) === 0) ? 1.0 : -1.0;\n    var e = ((bits >>> 23) & 0xff);\n    var m = (e === 0) ? (bits & 0x7fffff) << 1 : (bits & 0x7fffff) | 0x800000;\n    var f = sign * m * Math.pow(2, e - 150);\n    \n    return f\n  }\n  \n  function bytesToString(bytes){\n    return String.fromCharCode.apply(null, bytes);\n  }\n  \n  function byteToInt(bytes) {\n    var value = 0;\n    for ( var i = bytes.length - 1; i >= 0; i--) {\n        value = (value * 256) + bytes[i];\n    }\n    return value;\n  }\n  \n"
+        
+        var footer = "\n  return decoded\n}"
+        
+        return header + footer
+    }()
     
     
     private override init() {
