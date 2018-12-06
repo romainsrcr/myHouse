@@ -42,6 +42,7 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
         
         channelNumberLabel.text = ("Channel \(channel!.numberChannel)")
         numberChannelTextField.text = String(channel!.numberChannel)
+        numberChannelTextField.isUserInteractionEnabled = false
         typeOfDataTextField.text = channel!.name
         unitTextField.text = channel!.unit
         typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink!)!, inComponent:0, animated:true)
@@ -103,20 +104,8 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
         
         let context = AppDelegate.viewContext
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
-        fetch.predicate = NSPredicate(format: "numberChannel == %d", key!)
-        do {
-            let testfetch = try context.fetch(fetch)
-            print("Ca existe")
-            return true
-        }
-        catch let error as NSError{
-            print("Ca existe pas")
-            return false
-        }
-    }
+        fetch.predicate = NSPredicate(format: "numberChannel == %d", channel!.numberChannel)
         
-      /*
-            fetch.predicate = NSPredicate(format: "numberChannel == %d", channel!.numberChannel)
         do {
             let updateFetch = try context.fetch(fetch)
             
@@ -127,13 +116,16 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
             channelUpdate.setValue(type, forKey: "typeOfUplink")
             do {
                 try context.save()
+                return false
             } catch let error as NSError{
                 print("Error: \(error.localizedDescription)")
+                return true
             }
         } catch let error as NSError{
             print("Error: \(error.localizedDescription)")
+            return false
         }
-        */
+    }
         
         
         
