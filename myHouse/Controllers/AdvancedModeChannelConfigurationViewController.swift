@@ -76,17 +76,23 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         let channel: Int? = Int(channelNumberTextField.text!)
         //Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
         
-        saveChannelInCoreData(numberChannel: channel!, typeOfUplink: type)
+        saveChannelInCoreData(numberChannel: channel!, name : typeOfDataTextField.text!, unit : unitTextField.text!, typeOfUplink: type)
         
         return true
     }
     
-    private func saveChannelInCoreData(numberChannel : Int, typeOfUplink : String) {
+    private func saveChannelInCoreData(numberChannel : Int, name : String, unit : String, typeOfUplink : String) {
         let channel = ChannelCD(context: AppDelegate.viewContext)
         channel.numberChannel = Int16(numberChannel)
+        channel.name = name
+        channel.unit = unit
         channel.typeOfUplink = typeOfUplink
         
-        try? AppDelegate.viewContext.save()
+        do {
+            try AppDelegate.viewContext.save()
+        } catch let error as NSError{
+            print("Error: \(error.localizedDescription)")
+        }
     }
     
     

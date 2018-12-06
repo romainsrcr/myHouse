@@ -23,8 +23,11 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
         if Application.advancedMode == true {
+            deleteAllRecords(classToDelete : "TypeOfDataCD")
             self.performSegue(withIdentifier: "AdvancedModeAddingChannel", sender: nil)
+
         } else {
+            deleteAllRecords(classToDelete : "ChannelCD")
             self.performSegue(withIdentifier: "NormalModeAddInformation", sender: nil)
         }
     }
@@ -37,7 +40,8 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         super.viewDidLoad()
         
         // For test
-        deleteAllRecords()
+        deleteAllRecords(classToDelete : "ChannelCD")
+        deleteAllRecords(classToDelete : "TypeOfDataCD")
         
         if Application.advancedMode == true {
             textSettingComment.text = "You have to complete all informations about the channel that you're using"
@@ -92,10 +96,10 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         return cell
     }
     
-    func deleteAllRecords() {
+    func deleteAllRecords(classToDelete : String) {
         let context = AppDelegate.viewContext
         
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: classToDelete)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         do {

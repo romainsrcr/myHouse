@@ -848,7 +848,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="c7A-yS-eia" id="0t9-Vf-aRH"/>
                                 </connections>
@@ -869,7 +869,11 @@
                                                 <segue destination="kGo-rF-w6O" kind="unwind" identifier="cancelNormalMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="Su3-9D-4D6"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yy0-Je-ipn"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="yy0-Je-ipn">
+                                            <connections>
+                                                <segue destination="kGo-rF-w6O" kind="unwind" identifier="saveNormalMode" unwindAction="unwindToChannelViewControllerWithSegue:" id="nqs-Jr-qBb"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -887,6 +891,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QIF-C8-E6T"/>
                     </view>
+                    <connections>
+                        <outlet property="typeOfDataTextField" destination="VNy-bf-azq" id="MqL-h3-8VU"/>
+                        <outlet property="unitTextField" destination="ars-in-MiK" id="X9i-Hg-uXl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3CF-s6-Blk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="kGo-rF-w6O" userLabel="Exit" sceneMemberID="exit"/>

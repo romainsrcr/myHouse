@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
@@ -41,8 +42,8 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
         
         channelNumberLabel.text = ("Channel \(channel!.numberChannel)")
         numberChannelTextField.text = String(channel!.numberChannel)
-        //typeOfDataTextField.text = channel!.typeOfData
-        //unitTextField.text = channel!.unit
+        typeOfDataTextField.text = channel!.name
+        unitTextField.text = channel!.unit
         typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink!)!, inComponent:0, animated:true)
         
         // Alert configuration
@@ -64,7 +65,20 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "deleteChannel" {
-            Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
+            //Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
+            let context = AppDelegate.viewContext
+            
+            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+            deleteFetch.predicate = NSPredicate(format: "numberChannel = %@", channel!.numberChannel)
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+            
+            do {
+                try context.execute(deleteRequest)
+                try context.save()
+            } catch let error as NSError{
+                print("Error: \(error.localizedDescription)")
+            }
+            
         }
     }
     

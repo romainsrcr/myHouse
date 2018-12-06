@@ -166,7 +166,6 @@
 		ED0D1E17219EE5E600C1312D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */,
 				172D05072198481100B4A22F /* LoginViewController.swift */,
 				DA83DBCB2196D46400B8CCF9 /* DeviceCollectionViewController.swift */,
 				DA83DBC92196D26B00B8CCF9 /* DeviceCellViewController.swift */,
@@ -177,6 +176,7 @@
 				1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */,
 				17FD514121A614DB00E6E666 /* DeleteAndModifyViewController.swift */,
 				17FD513F21A5C65E00E6E666 /* AdvancedModeChannelConfigurationViewController.swift */,
+				1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */,
 				ED0D1E18219EE98300C1312D /* DevicesListSettingTableViewController.swift */,
 				ED065F24219F4A79003879A6 /* DeviceSettingsTableViewController.swift */,
 			);
