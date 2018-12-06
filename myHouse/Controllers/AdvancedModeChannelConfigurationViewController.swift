@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+    
     let alertFieldEmpty = UIAlertController(title: "Empty text field(s)", message: "Please fill the missing field(s)", preferredStyle: .alert)
     let alertFieldChannelUse = UIAlertController(title: "Channel already used", message: "Please change the channel number", preferredStyle: .alert)
     
@@ -32,7 +32,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         pickerData = ["Int", "Float", "String"]
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    
+        
         alertFieldChannelUse.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     }
     
@@ -70,13 +70,12 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
             let checkIfTypeOfDataTextFieldIsEmpty = typeOfDataTextField.text,
             let checkIfUnitTextFieldIsEmpty = unitTextField.text,
             !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
-        else {
-            // If one of them are empties
-            return false
+            else {
+                // If one of them are empties
+                return false
         }
         // Add the channel
         let channel: Int? = Int(channelNumberTextField.text!)
-        //Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
         
         // Verify if the channel already exist
         let context = AppDelegate.viewContext
@@ -112,13 +111,13 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

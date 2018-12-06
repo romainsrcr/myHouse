@@ -66,7 +66,6 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "deleteChannel" {
-            //Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
             let context = AppDelegate.viewContext
             
             let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
@@ -126,73 +125,48 @@ class DeleteAndModifyViewController: UIViewController, UIPickerViewDelegate, UIP
             return false
         }
     }
-        
-        
-        
-        /*        if key! != channel!.numberChannel { // si textField.numberChannel différent de la numberchannel segue
-         if Application.myChannels.keys.contains(key!) == false {  // si textfield.numberchannel est contenue dans myChannel
-         
-         //Remove the old channel
-         Application.myChannels.removeValue(forKey: Int(channel!.numberChannel))
-         
-         //Check if the number channel is already use
-         Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
-         
-         return false
-         
-         } else {
-         
-         return true
-         }
-         } else {
-         Application.myChannels[key!] = Channel(numberChannel: key!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
-         return false
-         }
-         }
-         */
-        
-        
-        func checkEmptyFiedl() -> Bool {
-            // Check if one the textFields are empties
-            guard let checkIfChannelNumberTextFieldIsEmpty = numberChannelTextField.text,
-                let checkIfTypeOfDataTextFieldIsEmpty = typeOfDataTextField.text,
-                let checkIfUnitTextFieldIsEmpty = unitTextField.text,
-                !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
-                else {
-                    // If one of them are empties
-                    return false
-            }
-            return true
+    
+    func checkEmptyFiedl() -> Bool {
+        // Check if one the textFields are empties
+        guard let checkIfChannelNumberTextFieldIsEmpty = numberChannelTextField.text,
+            let checkIfTypeOfDataTextFieldIsEmpty = typeOfDataTextField.text,
+            let checkIfUnitTextFieldIsEmpty = unitTextField.text,
+            !checkIfChannelNumberTextFieldIsEmpty.isEmpty && !checkIfTypeOfDataTextFieldIsEmpty.isEmpty && !checkIfUnitTextFieldIsEmpty.isEmpty
+            else {
+                // If one of them are empties
+                return false
         }
-        
-        
-        func numberOfComponents(in pickerView: UIPickerView) -> Int {
-            return 1
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return pickerData.count
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return pickerData[row]
-        }
-        
-        func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-            type = pickerData[row]
-        }
-        
-        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
-        }
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
+        return true
+    }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        type = pickerData[row]
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+    }
+    
+    /*
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
 }
