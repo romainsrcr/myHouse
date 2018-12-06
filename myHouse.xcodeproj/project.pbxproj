@@ -13,6 +13,9 @@
 		1765F4962181B75A00AF306E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4942181B75A00AF306E /* Main.storyboard */; };
 		1765F4982181B75B00AF306E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4972181B75B00AF306E /* Assets.xcassets */; };
 		1765F49B2181B75B00AF306E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1765F4992181B75B00AF306E /* LaunchScreen.storyboard */; };
+		177C0BAA21B880BA008D8607 /* ChannelModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BA821B880BA008D8607 /* ChannelModel.xcdatamodeld */; };
+		177C0BAC21B8818A008D8607 /* ChannelCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BAB21B8818A008D8607 /* ChannelCD.swift */; };
+		177C0BAE21B8A07E008D8607 /* TypeOfDataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */; };
 		1795CA0921A822740001FEF8 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */; };
 		1795CA1121AA1E4B0001FEF8 /* ToolFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */; };
 		1795CA1321AA2B930001FEF8 /* NormalModeConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */; };
@@ -43,6 +46,9 @@
 		1765F4972181B75B00AF306E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1765F49A2181B75B00AF306E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1765F49C2181B75B00AF306E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		177C0BA921B880BA008D8607 /* ChannelModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChannelModel.xcdatamodel; sourceTree = "<group>"; };
+		177C0BAB21B8818A008D8607 /* ChannelCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCD.swift; sourceTree = "<group>"; };
+		177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfDataCD.swift; sourceTree = "<group>"; };
 		1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
 		1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolFunctions.swift; path = myHouse/Tools/ToolFunctions.swift; sourceTree = SOURCE_ROOT; };
 		1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalModeConfigurationViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,9 @@
 		ED0D1E13219EE45C00C1312D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				177C0BAB21B8818A008D8607 /* ChannelCD.swift */,
+				177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */,
+				177C0BA821B880BA008D8607 /* ChannelModel.xcdatamodeld */,
 				EDFD71F2218B37B800E89BAB /* Device.swift */,
 				DA97A6832197433100FFB432 /* Application.swift */,
 			);
@@ -298,6 +307,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177C0BAC21B8818A008D8607 /* ChannelCD.swift in Sources */,
+				177C0BAE21B8A07E008D8607 /* TypeOfDataCD.swift in Sources */,
 				DAB56C8E2196F41900C07137 /* MapViewController.swift in Sources */,
 				ED0D1E19219EE98300C1312D /* DevicesListSettingTableViewController.swift in Sources */,
 				1765F48F2181B75A00AF306E /* AppDelegate.swift in Sources */,
@@ -311,6 +322,7 @@
 				DA83DBCA2196D26B00B8CCF9 /* DeviceCellViewController.swift in Sources */,
 				1795CA0921A822740001FEF8 /* ChoiceTableViewCell.swift in Sources */,
 				ED065F25219F4A79003879A6 /* DeviceSettingsTableViewController.swift in Sources */,
+				177C0BAA21B880BA008D8607 /* ChannelModel.xcdatamodeld in Sources */,
 				17FD513E219F2C8C00E6E666 /* ChannelSettingTableViewController.swift in Sources */,
 				DA97A6842197433100FFB432 /* Application.swift in Sources */,
 				EDFD71F3218B37B800E89BAB /* Device.swift in Sources */,
@@ -519,6 +531,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		177C0BA821B880BA008D8607 /* ChannelModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				177C0BA921B880BA008D8607 /* ChannelModel.xcdatamodel */,
+			);
+			currentVersion = 177C0BA921B880BA008D8607 /* ChannelModel.xcdatamodel */;
+			path = ChannelModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1765F4832181B75A00AF306E /* Project object */;
 }

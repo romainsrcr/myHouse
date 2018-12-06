@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
@@ -73,9 +74,21 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         }
         // Add the channel
         let channel: Int? = Int(channelNumberTextField.text!)
-        Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        //Application.myChannels[channel!] = Channel(numberChannel: channel!, typeOfData: typeOfDataTextField.text!, unit: unitTextField.text!, typeOfUplink : type)
+        
+        saveChannelInCoreData(numberChannel: channel!, typeOfUplink: type)
+        
         return true
     }
+    
+    private func saveChannelInCoreData(numberChannel : Int, typeOfUplink : String) {
+        let channel = ChannelCD(context: AppDelegate.viewContext)
+        channel.numberChannel = Int16(numberChannel)
+        channel.typeOfUplink = typeOfUplink
+        
+        try? AppDelegate.viewContext.save()
+    }
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return string.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil

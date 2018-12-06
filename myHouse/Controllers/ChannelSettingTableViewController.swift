@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -34,6 +35,10 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // For test
+        deleteAllRecords()
+        
         if Application.advancedMode == true {
             textSettingComment.text = "You have to complete all informations about the channel that you're using"
         } else {
@@ -42,10 +47,11 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         reloadView()
     }
     
+    
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if Application.advancedMode == true  && Application.myChannels.count != 0{
+        if Application.advancedMode == true {
             return 2
         } else {
             return 1
@@ -54,7 +60,14 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 1) {
-            return Application.myChannels.count
+            let channelFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+            let context = AppDelegate.viewContext
+            do {
+                let count = try context.count(for: channelFetch)
+                return count
+            } catch let error as NSError {
+                print("Error: \(error.localizedDescription)")
+            }
         }
         return 1
     }
@@ -70,12 +83,33 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         } else {
             cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
             
-            let keyOfmyChannelDictionary = Application.myChannels.keys
-            let intArrayToIterate = Array(keyOfmyChannelDictionary.map { Int($0) })
-            cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row]) | indexPath \(indexPath.row)"
+            //let keyOfmyChannelDictionary = Application.myChannels.keys
+            //let intArrayToIterate = Array(keyOfmyChannelDictionary.map { Int($0) })
+            
+            var intArrayToIterate : [Int16] = []
+            for channel in ChannelCD.all {
+                intArrayToIterate.append(Int16(channel.numberChannel))
+            }
+            print(intArrayToIterate)
+            
+            cell.textLabel?.text = "Channel \(intArrayToIterate[indexPath.row])"
             
         }
         return cell
+    }
+    
+    func deleteAllRecords() {
+        let context = AppDelegate.viewContext
+        
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch let error as NSError{
+            print("Error: \(error.localizedDescription)")
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -84,6 +118,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
                 let destination = segue.destination as! DeleteAndModifyViewController
                 let i = Array(Application.myChannels.keys)[indexPath.row]
                 destination.channel = Application.myChannels[i]
+                
             }
         }
     }
