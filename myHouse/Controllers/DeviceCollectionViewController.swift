@@ -74,6 +74,8 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         cell.device = Application.devices[indexPath.section]
         cell.sensor = Array(Application.devices[indexPath.section].datas.keys)[indexPath.row]
         
+        cell.setNeedsLayout()
+        
         cell.contentView.layer.cornerRadius = 25.0
         cell.contentView.layer.masksToBounds = true
         
