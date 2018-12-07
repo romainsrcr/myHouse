@@ -18,12 +18,12 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     @IBOutlet weak var textSettingComment: UILabel!
     
     @IBAction func switchCustomMode(_ sender: UISwitch) {
-        textSettingComment.text = updateMode(mode : sender.isOn)
-        reloadView()
+        UserDefaults.standard.set(sender.isOn, forKey: "noviceMode")
+        Application.updateChannels(success: {}, failure: {})
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
-        if Application.advancedMode == true {
+        if UserDefaults.standard.bool(forKey: "noviceMode") == true {
             self.performSegue(withIdentifier: "AdvancedModeAddingChannel", sender: nil)
         } else {
             self.performSegue(withIdentifier: "NormalModeAddInformation", sender: nil)
@@ -37,7 +37,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if Application.advancedMode == true {
+        if UserDefaults.standard.bool(forKey: "noviceMode") == true {
             textSettingComment.text = "You have to complete all informations about the channel that you're using"
         } else {
             textSettingComment.text = "You just have to complete the type of data and the unit"
@@ -55,7 +55,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (section == 1) {
             var channelFetch : NSFetchRequest<NSFetchRequestResult>
-            if Application.advancedMode == true {
+            if UserDefaults.standard.bool(forKey: "noviceMode") == true {
                 channelFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "ChannelCD")
             } else {
                 channelFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "TypeOfDataCD")
@@ -81,7 +81,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
             cell.textLabel?.text = "Advanced Mode"
             firstCell = cell
         } else {
-            if Application.advancedMode == true {
+            if UserDefaults.standard.bool(forKey: "noviceMode") == true {
                 cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath)
                 cell.textLabel?.text = "Channel \(ChannelCD.all[indexPath.row].numberChannel)"
             } else {

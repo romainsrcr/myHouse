@@ -35,7 +35,7 @@ class Device: NSObject, MKAnnotation {
     
     func getData(success: @escaping () -> Void) {
         
-        let url = "https://\(Application.name).data.thethingsnetwork.org/api/v2/query/\(self.name!)"
+        let url = "https://\(Application.name).data.thethingsnetwork.org/api/v2/query/\(self.name!)?last=7d"
         let headers = ["Authorization": "key \(Application.accessKey)"]
         
         Alamofire.request(url, headers:headers).responseJSON { response in

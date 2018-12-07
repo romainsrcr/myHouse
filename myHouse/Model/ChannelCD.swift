@@ -20,9 +20,9 @@ class ChannelCD: NSManagedObject {
         return channels
     }
     
-    static func getUnitFor(typeOfUplink:String) -> String{
+    static func getUnitFor(name:String) -> String{
         let request: NSFetchRequest<ChannelCD> = ChannelCD.fetchRequest()
-        request.predicate = NSPredicate(format: "name == %@", typeOfUplink)
+        request.predicate = NSPredicate(format: "name == %@", name)
         guard let channel = try? AppDelegate.viewContext.fetch(request) else {
             return ""
         }
