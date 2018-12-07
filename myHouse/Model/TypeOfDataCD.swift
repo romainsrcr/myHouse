@@ -19,4 +19,18 @@ class TypeOfDataCD: NSManagedObject {
         }
         return typeOfDatas
     }
+    
+    static func getUnitFor(name:String) -> String{
+        let request: NSFetchRequest<TypeOfDataCD> = TypeOfDataCD.fetchRequest()
+        request.predicate = NSPredicate(format: "name == %@", name)
+        guard let typeOfData = try? AppDelegate.viewContext.fetch(request) else {
+            return ""
+        }
+        if typeOfData.isEmpty {
+            return ""
+        }
+        else {
+            return typeOfData[0].unit!
+        }
+    }
 }

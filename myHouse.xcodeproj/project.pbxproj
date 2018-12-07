@@ -18,7 +18,6 @@
 		177C0BAE21B8A07E008D8607 /* TypeOfDataCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */; };
 		177C0BB521B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177C0BB421B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift */; };
 		1795CA0921A822740001FEF8 /* ChoiceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */; };
-		1795CA1121AA1E4B0001FEF8 /* ToolFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */; };
 		1795CA1321AA2B930001FEF8 /* NormalModeConfigurationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */; };
 		17D4BCF8219A31B500792836 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D4BCF7219A31B500792836 /* SettingTableViewController.swift */; };
 		17FD513E219F2C8C00E6E666 /* ChannelSettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */; };
@@ -52,7 +51,6 @@
 		177C0BAD21B8A07E008D8607 /* TypeOfDataCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeOfDataCD.swift; sourceTree = "<group>"; };
 		177C0BB421B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeleteAndModifyTypeOfDataViewController.swift; path = myHouse/Controllers/DeleteAndModifyTypeOfDataViewController.swift; sourceTree = SOURCE_ROOT; };
 		1795CA0821A822740001FEF8 /* ChoiceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceTableViewCell.swift; sourceTree = "<group>"; };
-		1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ToolFunctions.swift; path = myHouse/Tools/ToolFunctions.swift; sourceTree = SOURCE_ROOT; };
 		1795CA1221AA2B930001FEF8 /* NormalModeConfigurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalModeConfigurationViewController.swift; sourceTree = "<group>"; };
 		17D4BCF7219A31B500792836 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		17FD513D219F2C8C00E6E666 /* ChannelSettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChannelSettingTableViewController.swift; path = myHouse/Controllers/ChannelSettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -147,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				ED08BD70219C775400D3A18A /* Extensions.swift */,
-				1795CA1021AA1E4B0001FEF8 /* ToolFunctions.swift */,
 				ED4BF1F5219DC5C400EF6FF8 /* DateValueFormatter.swift */,
 				172D050921984EE100B4A22F /* Switcher.swift */,
 				1765F48E2181B75A00AF306E /* AppDelegate.swift */,
@@ -333,7 +330,6 @@
 				ED08BD71219C775400D3A18A /* Extensions.swift in Sources */,
 				ED5D42D721998F0E0026D73E /* DeviceDetailsViewController.swift in Sources */,
 				177C0BB521B9D378008D8607 /* DeleteAndModifyTypeOfDataViewController.swift in Sources */,
-				1795CA1121AA1E4B0001FEF8 /* ToolFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
