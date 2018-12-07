@@ -29,7 +29,7 @@ class SettingTableViewController: UITableViewController {
         alertLogOut.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         
         // Display name of application more natural
-        appNameInSetting.text = Application.name()!.replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
+        appNameInSetting.text = Application.name.replacingOccurrences(of: "_", with: " ", options: .literal, range: nil)
         
         
             
