@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "icons8-développeur-30.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "sodaq_explorer.png",
+      "filename" : "icons8-développeur-60.png",
       "scale" : "2x"
     },
     {

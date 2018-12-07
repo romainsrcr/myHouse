@@ -20,6 +20,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     @IBAction func switchCustomMode(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "noviceMode")
         Application.updateChannels(success: {}, failure: {})
+        reloadView()
     }
     
     @IBAction func addButton(_ sender: UIBarButtonItem) {
@@ -32,19 +33,22 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
     
     func reloadView() {
         self.tableView.reloadData()
+        updateText()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        if UserDefaults.standard.bool(forKey: "noviceMode") == true {
-            textSettingComment.text = "You have to complete all informations about the channel that you're using"
-        } else {
-            textSettingComment.text = "You just have to complete the type of data and the unit"
-        }
-        reloadView()
+        updateText()
+        
     }
     
+    func updateText() {
+        if UserDefaults.standard.bool(forKey: "noviceMode") == true {
+            textSettingComment.text = "If you use this mode, the app will generate for you the decoder code for the payload Format. You have to complete all informations about the channel that you want to use"
+        } else {
+            textSettingComment.text = "Use this option if you want to use the app with a custom decoder code in TTN. The just precise the Unit for each data decoded"
+        }
+    }
     
     // MARK: - Table view data source
     
