@@ -21,6 +21,9 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.set("ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow", forKey: "accessKey")
         UserDefaults.standard.set(true, forKey: "status")
         
+        Application.name = "project_iot_dtu"
+        Application.accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
+        
         Switcher.updateRootVC()
     }
     
