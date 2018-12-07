@@ -20,6 +20,8 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         //initialise the parent
         super.viewDidLoad()
         
+        getDataAndReload()
+        
         //Calculate the width of each cell fro each devices
         let cellWidth: CGFloat
         switch UIDevice.current.userInterfaceIdiom {
@@ -42,7 +44,7 @@ class DeviceCollectionViewController: UIViewController, UICollectionViewDataSour
         refreshControl.addTarget(self, action: #selector(getDataAndReload), for: .valueChanged)
         
         //fetch the data from the API
-        getDataAndReload()
+        
         
     }
     

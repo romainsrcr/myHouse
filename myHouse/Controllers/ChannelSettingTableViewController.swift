@@ -82,7 +82,7 @@ class ChannelSettingTableViewController: UIViewController, UITableViewDelegate, 
         
         if indexPath.section == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: "modeCell", for: indexPath)
-            cell.textLabel?.text = "Advanced Mode"
+            cell.textLabel?.text = "Novice Mode"
             firstCell = cell
         } else {
             if UserDefaults.standard.bool(forKey: "noviceMode") == true {

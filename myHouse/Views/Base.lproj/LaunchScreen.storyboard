@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="IconBlank" width="512" height="512"/>
+        <image name="IconBlank" width="1024" height="1024"/>
     </resources>
 </document>
