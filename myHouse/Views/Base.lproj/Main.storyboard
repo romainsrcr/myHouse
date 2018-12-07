@@ -216,6 +216,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gz1-2L-N4C">
+                                <rect key="frame" x="71" y="616" width="272" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="272" id="ttQ-2c-jUs"/>
+                                </constraints>
+                                <state key="normal" title="Demo Login In"/>
+                                <connections>
+                                    <action selector="demoButtonLogIn:" destination="0u9-UL-5ri" eventType="touchUpInside" id="zS8-Qn-dva"/>
+                                    <action selector="loginButtonTapped:" destination="0u9-UL-5ri" eventType="touchUpInside" id="qz7-qS-fV4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -236,6 +247,7 @@
                     <connections>
                         <outlet property="accessKeyTextField" destination="F1z-oZ-I1S" id="26M-hD-n9n"/>
                         <outlet property="appNameTextField" destination="8Fe-tY-N6J" id="CCQ-KI-YJe"/>
+                        <outlet property="demoButtonLogIn" destination="Gz1-2L-N4C" id="qfI-hr-ezi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVI-1y-322" userLabel="First Responder" sceneMemberID="firstResponder"/>
