@@ -14,11 +14,14 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var appNameTextField: UITextField!
     
-    @IBOutlet weak var accessKeyTextField: UITextField!
+    @IBOutlet weak var accessKeyTextField: UITextField! 
     
     @IBAction func demoButtonLogIn(_ sender: UIButton) {
+        UserDefaults.standard.set("project_iot_dtu", forKey: "appName")
+        UserDefaults.standard.set("ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow", forKey: "accessKey")
+        UserDefaults.standard.set(true, forKey: "status")
         
-        
+        Switcher.updateRootVC()
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
