@@ -16,6 +16,11 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var accessKeyTextField: UITextField!
     
+    @IBAction func demoButtonLogIn(_ sender: UIButton) {
+        
+        
+    }
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
         
         // Check if one the textFields are empties
