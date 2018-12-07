@@ -22,9 +22,12 @@ class DeviceCellViewController: UICollectionViewCell {
         Name.text = device!.title!
         valueString = (device!.datas[sensor!]!["data"]!.last! as! Double).clean
         
-        if Application.advancedMode == true {
+        if UserDefaults.standard.bool(forKey: "noviceMode") == true {
 
-            unit = ChannelCD.getUnitFor(typeOfUplink: sensor!)
+            unit = ChannelCD.getUnitFor(name: sensor!)
+        }
+        else {
+            unit = TypeOfDataCD.getUnitFor(name: sensor!)
         }
         
         Value.text = (valueString! + " " + unit!)

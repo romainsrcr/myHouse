@@ -14,13 +14,15 @@ import MapKit
 class Application: NSObject{
     
     // Si tu veux avoir accès à App Name et AccesKey mis par user :
-    //      private static let name = UserDefaults.standard.string(forKey: "appName")
-    //      private static let accessKey = UserDefaults.standard.string(forKey: "accessKey")
+    //
     
     // Properties of the application
-    static var name = "project_iot_dtu"
-    static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
-    static var advancedMode: Bool = true
+    //static var name = "project_iot_dtu"
+    //static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
+    //static var advancedMode: Bool = true
+    
+    static let name = { return UserDefaults.standard.string(forKey: "appName") }
+    static let accessKey = { return UserDefaults.standard.string(forKey: "accessKey") }
     
     //Interresting information
     private(set) static var devices: [Device] = []
@@ -66,37 +68,11 @@ class Application: NSObject{
         }
     }
     
-    static func getAdvancedMode(success: @escaping () -> Void) {
-        let url = "http://eu.thethings.network:8084/applications/\(name)"
-        let headers = ["Authorization": "Key \(accessKey)"]
-        
-        Alamofire.request(url, headers:headers).responseJSON { response in
-            if (response.result.isSuccess) {
-                if let result = response.result.value {
-                    let resultJSON = JSON(result)
-                    if let decoder = resultJSON["decoder"].string {
-                        if decoder == self.decoder {
-                            self.advancedMode = false
-                        }
-                        else
-                        {
-                            self.advancedMode = true
-                        }
-                    }
-                    else
-                    {
-                        self.advancedMode = true
-                    }
-                }
-                success()
-            }
-        }
-    }
     
     static func updateChannels(success: @escaping () -> Void, failure: @escaping () -> Void) {
         let url = "http://eu.thethings.network:8084/applications/\(name)"
         let headers = ["Authorization": "Key \(accessKey)"]
-        let data = ["decoder" : "Coucou"]
+        let data = ["decoder" : self.decoder]
         
         Alamofire.request(url, method: .post, parameters: data, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
             if (response.result.isSuccess) {
@@ -108,7 +84,4 @@ class Application: NSObject{
         }
     }
     
-    static func setAdvancedMode(success: @escaping () -> Void, advanced: Bool){
-        
-    }
 }

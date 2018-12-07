@@ -19,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Switcher.updateRootVC()
         Application.getDevices(success: {})
-        Application.getAdvancedMode(success: {})
+        
+        if UserDefaults.standard.bool(forKey: "noviceMode") == true {
+            Application.updateChannels(success: {}, failure: {})
+        }
+        
         return true
     }
 
