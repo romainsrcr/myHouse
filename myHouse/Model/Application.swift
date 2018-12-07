@@ -21,8 +21,8 @@ class Application: NSObject{
     //static let accessKey = "ttn-account-v2.aoC_LAYJ5OE21VzyAmFRmtKKC5c5aQx4BA9y6-1Ijow"
     //static var advancedMode: Bool = true
     
-    static let name:String = {return UserDefaults.standard.string(forKey: "appName")!}()
-    static let accessKey:String = { return UserDefaults.standard.string(forKey: "accessKey")! }()
+    static let name:String = { return UserDefaults.standard.string(forKey: "appName") ?? "" }()
+    static let accessKey:String = { return UserDefaults.standard.string(forKey: "accessKey") ?? "" }()
     
     //Interresting information
     private(set) static var devices: [Device] = []
