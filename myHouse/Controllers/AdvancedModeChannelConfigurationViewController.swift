@@ -12,7 +12,8 @@ import CoreData
 class AdvancedModeChannelConfigurationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     let alertFieldEmpty = UIAlertController(title: "Empty text field(s)", message: "Please fill the missing field(s)", preferredStyle: .alert)
-    let alertFieldChannelUsed = UIAlertController(title: "Channel already used", message: "Please change the channel number", preferredStyle: .alert)
+    
+    let alertFieldChannelUsed = UIAlertController(title: "Channel already used", message: nil, preferredStyle: .alert)
     
     @IBOutlet weak var channelNumberTextField: UITextField!
     
@@ -32,8 +33,18 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         pickerData = ["Int", "Float", "String"]
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    
+        alertFieldChannelUsed.addTextField(configurationHandler: { textField in
+            textField.delegate = self
+            textField.keyboardType = UIKeyboardType.numberPad
+            textField.placeholder = "Please enter another channel"
+            
+        })
+        alertFieldChannelUsed.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            if let numberChannelModified = self.alertFieldChannelUsed.textFields?.first?.text {
+                self.channelNumberTextField.text = numberChannelModified }
+        }))
         
-        alertFieldChannelUsed.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -83,7 +94,7 @@ class AdvancedModeChannelConfigurationViewController: UIViewController, UIPicker
         fetch.predicate = NSPredicate(format: "numberChannel == %d", channel!)
         
         if try! !context.fetch(fetch).isEmpty {
-            self.present(alertFieldChannelUsed, animated: true, completion: nil)
+            self.present(alertFieldChannelUsed, animated: true)
             return false
         } else {
             saveChannelInCoreData(numberChannel: channel!, name : typeOfDataTextField.text!, unit : unitTextField.text!, typeOfUplink: type)

@@ -9,12 +9,12 @@
 import UIKit
 import CoreData
 
-class NormalModeConfigurationViewController: UIViewController {
+class NormalModeConfigurationViewController: UIViewController, UITextFieldDelegate {
     
     
     let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
     
-    let alertFieldtypeOfDataUsed = UIAlertController(title: "Type of data already used", message: "Please change the type of data name", preferredStyle: .alert)
+    let alertFieldtypeOfDataUsed = UIAlertController(title: "Type of data already used", message: nil, preferredStyle: .alert)
 
     @IBOutlet weak var typeOfDataTextField: UITextField!
     @IBOutlet weak var unitTextField: UITextField!
@@ -24,8 +24,15 @@ class NormalModeConfigurationViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        
-        alertFieldtypeOfDataUsed.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertFieldtypeOfDataUsed.addTextField(configurationHandler: { textField in
+            textField.delegate = self
+            textField.placeholder = "Please enter another type of data"
+            
+        })
+        alertFieldtypeOfDataUsed.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            if let typeOfDataModified = self.alertFieldtypeOfDataUsed.textFields?.first?.text {
+                self.typeOfDataTextField.text = typeOfDataModified }
+        }))
         
     }
     

@@ -17,8 +17,6 @@ class DeleteAndModifyChannelViewController: UIViewController, UIPickerViewDelega
     
     var type : String = "Int"
     
-    let alertNumberChannelAlreadyUse = UIAlertController(title: "This number of channel is already use of another type of data", message: nil, preferredStyle: .alert)
-    
     let alertFieldEmpty = UIAlertController(title: "Empty text fields", message: "Please fill the missing field(s)", preferredStyle: .alert)
     
     @IBOutlet weak var channelNumberLabel: UILabel!
@@ -43,19 +41,6 @@ class DeleteAndModifyChannelViewController: UIViewController, UIPickerViewDelega
         typeOfUplink.selectRow(pickerData.index(of : channel!.typeOfUplink!)!, inComponent:0, animated:true)
         
         // Alert configuration
-        alertNumberChannelAlreadyUse.addTextField(configurationHandler: { textField in
-            textField.delegate = self
-            textField.keyboardType = UIKeyboardType.numberPad
-            textField.placeholder = "Please enter another channel"
-            
-        })
-        
-        alertNumberChannelAlreadyUse.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-            if let numberChannelModified = self.alertNumberChannelAlreadyUse.textFields?.first?.text {
-                self.channelNumberLabel.text = ("Channel \(numberChannelModified)")
-                self.numberChannelTextField.text = numberChannelModified }
-        }))
-        
         alertFieldEmpty.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
     }
     
@@ -86,7 +71,6 @@ class DeleteAndModifyChannelViewController: UIViewController, UIPickerViewDelega
                 return false
             }
             if self.updateChannel() { // return true if an error occured
-                self.present(alertNumberChannelAlreadyUse, animated: true)
                 return false
             }
         }
