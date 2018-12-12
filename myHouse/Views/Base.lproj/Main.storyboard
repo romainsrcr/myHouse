@@ -274,10 +274,10 @@
         <scene sceneID="5K0-PN-DOj">
             <objects>
                 <navigationController title="Dev Tools" automaticallyAdjustsScrollViewInsets="NO" id="9y3-lD-aIr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Dashboard" image="DevTools" selectedImage="Dashboard" id="CRO-cA-IyV"/>
+                    <tabBarItem key="tabBarItem" title="Dashboard" image="Dashboard" selectedImage="Dashboard" id="CRO-cA-IyV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mrW-Uy-vN6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="50"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -677,7 +677,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="388" translatesAutoresizingMaskIntoConstraints="NO" id="bl6-iH-BdK">
-                                            <rect key="frame" x="13" y="0.0" width="349" height="0.0"/>
+                                            <rect key="frame" x="13" y="0.0" width="294" height="0.0"/>
                                             <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                             <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
@@ -698,7 +698,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooy-cF-7uF">
-                                                    <rect key="frame" x="311" y="6.5" width="51" height="30.5"/>
+                                                    <rect key="frame" x="256" y="6.5" width="51" height="30.5"/>
                                                     <connections>
                                                         <action selector="switchCustomMode:" destination="16L-BK-V9K" eventType="valueChanged" id="AlN-82-U0Y"/>
                                                     </connections>
@@ -870,8 +870,6 @@
         <!--Normal Mode Configuration View Controller-->
         <scene sceneID="bqe-4u-GfJ">
             <objects>
-                <exit id="kGo-rF-w6O" userLabel="Exit" sceneMemberID="exit"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3CF-s6-Blk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="c7A-yS-eia" customClass="NormalModeConfigurationViewController" customModule="myHouse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ueh-FR-yB5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
@@ -933,6 +931,8 @@
                         <outlet property="unitTextField" destination="ars-in-MiK" id="X9i-Hg-uXl"/>
                     </connections>
                 </viewController>
+                <exit id="kGo-rF-w6O" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3CF-s6-Blk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2997" y="1354"/>
         </scene>
@@ -1159,8 +1159,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Dashboard" width="30" height="30"/>
-        <image name="DevTools" width="30" height="30"/>
-        <image name="Map Icon" width="30" height="30"/>
+        <image name="Dashboard" width="45" height="45"/>
+        <image name="DevTools" width="45" height="45"/>
+        <image name="Map Icon" width="45" height="45"/>
     </resources>
 </document>
