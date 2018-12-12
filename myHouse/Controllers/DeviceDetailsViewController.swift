@@ -13,6 +13,7 @@ class DeviceDetailsViewController: UIViewController {
     
     var device: Device?
     var sensor: String?
+    var lastData: [Any] = []
     
     @IBOutlet weak var DescriptionView: UILabel!
     @IBOutlet weak var ChartView: LineChartView!
@@ -20,7 +21,13 @@ class DeviceDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DescriptionView.text = self.device!.deviceDescription
-        self.device!.getData(success: { self.updateGraoh() })
+        lastData = device!.datas[sensor!]!["data"]!
+        self.device!.getData(success: {
+            if (self.lastData as! [Double]) != (self.device!.datas[self.sensor!]!["data"]! as! [Double])
+            {
+                self.updateGraoh()
+            }
+        })
         updateGraoh()
     }
     
